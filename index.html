@@ -248,11 +248,11 @@ section:nth-child(3){animation-delay:.18s}section:nth-child(4){animation-delay:.
 @media(max-width:768px){.featured-cards{grid-template-columns:1fr 1fr}}
 @media(max-width:480px){.featured-cards{grid-template-columns:1fr}}
 
-.header-gallery{position:absolute;right:40px;top:50%;transform:translateY(-50%);display:flex;gap:14px;align-items:center;pointer-events:none}
-.hg-slot{overflow:hidden;opacity:.18;filter:sepia(.6)}
-.hg-slot-1{width:180px;height:180px;border-radius:50%}
-.hg-slot-2{width:110px;height:150px;border-radius:4px}
-.hg-slot-3{width:130px;height:150px;border-radius:4px}
+.header-gallery{position:absolute;right:0;top:0;bottom:0;left:35%;display:flex;gap:0;align-items:stretch;overflow:hidden;pointer-events:none}
+.hg-slot{overflow:hidden;opacity:.15;filter:sepia(.5)}
+.hg-slot-1{flex:1.2;border-radius:0}
+.hg-slot-2{flex:1;border-radius:0}
+.hg-slot-3{flex:1;border-radius:0}
 .hg-img{width:100%;height:100%;object-fit:cover}
 @media(max-width:900px){.hg-slot-2,.hg-slot-3{display:none}.hg-slot-1{width:140px;height:140px}}
 @media(max-width:600px){.header-gallery{display:none}}
@@ -595,46 +595,72 @@ function allA(){return[...gCA(),...DEF_ARTS]}
 function allV(){return[...gCV(),...DEF_VIDS]}
 
 function renderFeatArt(){
-  const arts=allA().filter(a=>a.status==='published'&&a.url).slice(0,3);
-  const GS2=['radial-gradient(ellipse at 30% 50%,rgba(184,144,42,.4),rgba(107,124,90,.2) 60%),#1a1209','radial-gradient(ellipse at 70% 30%,rgba(107,124,90,.5),rgba(26,18,9,.8) 60%),#1a1209','radial-gradient(ellipse at 50% 80%,rgba(139,69,19,.4),rgba(26,18,9,.8) 60%),#1a1209'];
-  const chars=['法','佛','空'];
-  const el=document.getElementById('feat-art');
+  var arts=allA().filter(function(a){return a.status==='published'&&a.url;}).slice(0,3);
+  var GS=['radial-gradient(ellipse at 30% 50%,rgba(184,144,42,.4),rgba(107,124,90,.2) 60%),#1a1209','radial-gradient(ellipse at 70% 30%,rgba(107,124,90,.5),rgba(26,18,9,.8) 60%),#1a1209','radial-gradient(ellipse at 50% 80%,rgba(139,69,19,.4),rgba(26,18,9,.8) 60%),#1a1209'];
+  var chars=['法','佛','空'];
+  var el=document.getElementById('feat-art');
   if(!el)return;
-  el.innerHTML=arts.map((a,i)=>`<a href="${a.url}" target="_blank" class="feat-card"><div class="feat-thumb"><div class="feat-thumb-bg" style="background:${GS2[i%3]}"></div><span class="feat-thumb-char">${chars[i%3]}</span><span class="feat-tag">${a.tag}</span></div><div class="feat-body"><div class="feat-date">${a.date}</div><div class="feat-title">${a.title}</div></div></a>`).join('');
+  var html='';
+  for(var i=0;i<arts.length;i++){
+    var a=arts[i];
+    html+='<a href="'+a.url+'" target="_blank" class="feat-card">'
+      +'<div class="feat-thumb"><div class="feat-thumb-bg" style="background:'+GS[i%3]+'"></div>'
+      +'<span class="feat-thumb-char">'+chars[i%3]+'</span>'
+      +'<span class="feat-tag">'+a.tag+'</span></div>'
+      +'<div class="feat-body"><div class="feat-date">'+a.date+'</div>'
+      +'<div class="feat-title">'+a.title+'</div></div></a>';
+  }
+  el.innerHTML=html;
 }
 function renderA(){
-  const T=LANGS[curLang];const arts=allA();const shown=arts.slice(3,13);
-  document.getElementById('art-list').innerHTML=shown.map(a=>{
-    const isUp=a.status==='upcoming'||!a.url;
-    const m=a.date.match(/(\d+)月(\d+)/)||['','',''];
-    return`<a href="${isUp?'javascript:void(0)":a.url}" ${isUp?'":target="_blank""} class="art-item${isUp?' up-item':'"}">${
-    `<div class="art-date"><span>${m[2]}</span>${m[1]}月</div>`}${
-    `<div class="art-title">${a.title}</div>`}${
-    `<span class="art-badge ${isUp?'b-up':'b-norm'}">${isUp?(T['badge-upcoming']||'即將發表'):a.tag}</span>`}</a>`;
-  }).join('');
-  document.getElementById('art-label').textContent=`共 ${arts.length} 篇`;
-  document.getElementById('art-count').textContent=arts.length;
-}
-
-function renderFeatVid(){
-  const vids=allV().filter(v=>v.status==='published'&&v.url).slice(0,3);
-  const GS3=['radial-gradient(ellipse at 30% 50%,rgba(184,144,42,.3),transparent 60%),#1a1209','radial-gradient(ellipse at 70% 30%,rgba(107,124,90,.4),transparent 60%),#1a1209','radial-gradient(ellipse at 50% 80%,rgba(139,69,19,.3),transparent 60%),#1a1209'];
-  const el=document.getElementById('feat-vid');
+  var T=LANGS[curLang];var arts=allA();var shown=arts.slice(3,13);
+  var el=document.getElementById('art-list');
   if(!el)return;
-  el.innerHTML=vids.map((v,i)=>`<div class="feat-card feat-vid-card" onclick="showWcPopup()"><div class="feat-thumb"><div class="feat-thumb-bg" style="background:${GS3[i%3]}"></div><div class="feat-vid-play"></div></div><div class="feat-body"><div class="feat-date">👁 ${v.views} ・ ${v.date}</div><div class="feat-title">${v.title}</div></div></div>`).join('');
+  el.innerHTML=shown.map(function(a){
+    var isUp=a.status==='upcoming'||!a.url;
+    var m=a.date.match(/(\d+)月(\d+)/)||['','',''];
+    var href=isUp?'javascript:void(0)':a.url;
+    var target=isUp?'':' target="_blank"';
+    return '<a href="'+href+'"'+target+' class="art-item'+(isUp?' up-item':'')+'">'
+      +'<div class="art-date"><span>'+m[2]+'</span>'+m[1]+'月</div>'
+      +'<div class="art-title">'+a.title+'</div>'
+      +'<div class="art-meta">'+(isUp?'<span class="up-badge" data-i18n="upcoming">即將發布</span>':'<span class="art-tag">'+a.tag+'</span>')+'</div>'
+      +'</a>';
+  }).join('');
+  var cnt=document.getElementById('art-count');
+  if(cnt)cnt.textContent=arts.length;
+}
+function renderFeatVid(){
+  var vids=allV().filter(function(v){return v.status==='published'&&v.url;}).slice(0,3);
+  var GS=['radial-gradient(ellipse at 30% 50%,rgba(184,144,42,.3),transparent 60%),#1a1209','radial-gradient(ellipse at 70% 30%,rgba(107,124,90,.4),transparent 60%),#1a1209','radial-gradient(ellipse at 50% 80%,rgba(139,69,19,.3),transparent 60%),#1a1209'];
+  var el=document.getElementById('feat-vid');
+  if(!el)return;
+  var html='';
+  for(var i=0;i<vids.length;i++){
+    var v=vids[i];
+    html+='<div class="feat-card feat-vid-card" onclick="showWcPopup()">'
+      +'<div class="feat-thumb"><div class="feat-thumb-bg" style="background:'+GS[i%3]+'"></div>'
+      +'<div class="feat-vid-play"></div></div>'
+      +'<div class="feat-body"><div class="feat-date">👁 '+v.views+' · '+v.date+'</div>'
+      +'<div class="feat-title">'+v.title+'</div></div></div>';
+  }
+  el.innerHTML=html;
 }
 function renderV(){
-  const vids=allV();const shown=vids.slice(3,9);
-  document.getElementById('vid-list').innerHTML=shown.map((v,i)=>{
-    const isUp=v.status==='upcoming'||!v.url;
-    const bg=GS[i%GS.length];
-    if(isUp)return`<div class="vid-card up-vid"><div class="vid-thumb"><div class="vid-bg" style="background:${bg}"></div><span class="soon-lbl">即將發表</span></div><div class="vid-info"><p class="vid-title">${v.title}</p><div class="vid-meta"><span>📅 ${v.date}</span></div></div></div>`;
-    return`<div class="vid-card" onclick="showWcPopup()"><div class="vid-thumb"><div class="vid-bg" style="background:${bg}"></div><div class="play-btn"></div><div class="wechat-hint">📱 在微信中觀看</div></div><div class="vid-info"><p class="vid-title">${v.title}</p><div class="vid-meta"><span>👁 ${v.views}</span><span>${v.date}</span></div></div></div>`;
+  var vids=allV();var shown=vids.slice(3,9);
+  var el=document.getElementById('vid-list');
+  if(!el)return;
+  el.innerHTML=shown.map(function(v){
+    var isUp=v.status==='upcoming'||!v.url;
+    return '<div class="vid-item'+(isUp?' up-item':'')+'" onclick="'+(isUp?'':'showWcPopup()')+'\">'
+      +'<div class="vid-date">'+v.date+'</div>'
+      +'<div class="vid-title">'+v.title+'</div>'
+      +'<div class="vid-views">👁 '+v.views+'</div>'
+      +'</div>';
   }).join('');
-  document.getElementById('vid-label').textContent=`共 ${allV().length} 部`;
-  document.getElementById('vid-count').textContent=allV().length;
+  var cnt=document.getElementById('vid-count');
+  if(cnt)cnt.textContent=vids.length;
 }
-
 function render(){renderFeatArt();renderA();renderFeatVid();renderV();}
 function showWcPopup(){document.getElementById('wcPopup').classList.add('open')}
 
