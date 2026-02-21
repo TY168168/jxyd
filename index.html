@@ -904,3 +904,52 @@ function toggleBili() {
 }
 function toggleHist() {
   const sub = document.getElementById('hist-su
+</script>
+</body>
+<script>
+async function loadContent() {
+  try {
+    const res = await fetch('content.json?' + Date.now());
+    const data = await res.json();
+    renderArticles(data.articles || []);
+    renderVideos(data.videos || []);
+  } catch(e) { console.warn('content.json 載入失敗', e); }
+}
+function formatDate(s) {
+  const d = new Date(s);
+  return { month: String(d.getMonth()+1).padStart(2,'0'), day: String(d.getDate()).padStart(2,'0'), year: d.getFullYear() };
+}
+function renderArticles(articles) {
+  const c = document.getElementById('article-list-dynamic');
+  if (!c) return;
+  c.innerHTML = articles.map(a => {
+    const d = formatDate(a.date);
+    return `<a class="art-item" href="${a.links.wechat||'#'}" target="_blank" rel="noopener">
+      <div class="art-date"><span>${d.day}</span>${d.month}月</div>
+      <div class="art-title">${a.title}</div>
+      <span class="art-badge b-norm">微信</span>
+    </a>`;
+  }).join('');
+}
+function renderVideos(videos) {
+  const c = document.getElementById('video-grid-dynamic');
+  if (!c) return;
+  const colors = ['linear-gradient(135deg,#2d1f0a,#5c3d18)','linear-gradient(135deg,#1a2d1a,#3d5c3d)','linear-gradient(135deg,#1a1a2d,#3d3d5c)'];
+  const chars = ['法','慧','空'];
+  c.innerHTML = videos.map((v,i) => `
+    <div class="vid-card" onclick="document.getElementById('wc-popup').classList.add('open')">
+      <div class="vid-thumb">
+        <div class="vid-bg" style="background:${colors[i%3]}"></div>
+        <div class="feat-thumb-char" style="position:relative;z-index:2;font-size:52px;opacity:.25;font-weight:700;color:#d4a843">${chars[i%3]}</div>
+        <div class="play-btn"></div>
+        <div class="wechat-hint">微信App內觀看 · 長按二維碼</div>
+      </div>
+      <div class="vid-info">
+        <div class="vid-title">${v.title}</div>
+        <div class="vid-meta"><span>${v.date}</span><span>微信視頻號</span></div>
+      </div>
+    </div>`).join('');
+}
+document.addEventListener('DOMContentLoaded', loadContent);
+</script>
+</html>
