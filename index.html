@@ -937,7 +937,7 @@ function renderVideos(videos) {
   const colors = ['linear-gradient(135deg,#2d1f0a,#5c3d18)','linear-gradient(135deg,#1a2d1a,#3d5c3d)','linear-gradient(135deg,#1a1a2d,#3d3d5c)'];
   const chars = ['法','慧','空'];
   c.innerHTML = videos.map((v,i) => `
-    <div class="vid-card" onclick="document.getElementById('wc-popup').classList.add('open')">
+    <div class="vid-card" onclick="document.getElementById('wcPopup').classList.add('open')">
       <div class="vid-thumb">
         <div class="vid-bg" style="background:${colors[i%3]}"></div>
         <div class="feat-thumb-char" style="position:relative;z-index:2;font-size:52px;opacity:.25;font-weight:700;color:#d4a843">${chars[i%3]}</div>
