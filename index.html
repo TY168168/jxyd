@@ -330,6 +330,7 @@ section:nth-child(3){animation-delay:.18s}section:nth-child(4){animation-delay:.
   <div class="sec-hdr"><h2 class="sec-title" data-i18n="sec-articles">原創文章</h2><span class="sec-count" id="art-label">共 30 篇</span></div>
   <div class="featured-cards" id="feat-art"></div>
   <div class="article-list" id="art-list" style="margin-top:12px"></div>
+<div id="article-list-dynamic"></div>
   <a href="https://mp.weixin.qq.com" target="_blank" class="view-more" data-i18n="view-all-articles">前往微信公眾號查看全部文章 →</a>
 </section>
 
@@ -337,6 +338,7 @@ section:nth-child(3){animation-delay:.18s}section:nth-child(4){animation-delay:.
   <div class="sec-hdr"><h2 class="sec-title" data-i18n="sec-videos">短視頻</h2><span class="sec-count" id="vid-label">共 12 部</span></div>
   <div class="featured-cards" id="feat-vid"></div>
   <div class="video-grid" id="vid-list" style="margin-top:12px"></div>
+<div id="video-grid-dynamic"></div>
   <div style="margin-top:14px;padding:14px;background:rgba(107,124,90,.08);border-left:3px solid var(--sage)">
     <p style="font-size:11px;color:rgba(26,18,9,.55);font-family:'Noto Sans TC',sans-serif;line-height:1.8" data-i18n="video-note">💡 視頻號連結只能在微信App內打開。請在手機微信搜尋「金仙羊豆」或掃描下方二維碼，直接在視頻號觀看。</p>
   </div>
@@ -910,7 +912,9 @@ function toggleHist() {
   arrow.classList.toggle('open', !isOpen);
 }
 
-render();
+function loadContent(){fetch('content.json').then(function(r){return r.json();}).catch(function(){return null;}).then(function(data){if(!data)return;var artEl=document.getElementById('article-list-dynamic');var vidEl=document.getElementById('video-grid-dynamic');if(artEl&&data.articles){var h='';data.articles.forEach(function(a){var d=a.date||'';var t=a.title||'';var url=a.links&&a.links.wechat?a.links.wechat:'#';h+='<div onclick="window.open(\''+url+'\',\'_blank\')" style="cursor:pointer;padding:12px 0;border-bottom:1px solid rgba(0,0,0,.08);display:flex;align-items:center;gap:16px"><div style="min-width:44px;text-align:center;font-size:22px;font-weight:700;color:var(--gold,#b8963e)">'+d.slice(8,10)+'<br><span style="font-size:11px;font-weight:400;color:#888">'+d.slice(5,7)+'月</span></div><div style="flex:1;font-size:14px">'+t+'</div></div>';});artEl.innerHTML=h;}if(vidEl&&data.videos){var v='';data.videos.forEach(function(vid){var t=vid.title||'';v+='<div onclick="showWcPopup()" style="cursor:pointer;background:rgba(0,0,0,.05);border-radius:8px;padding:16px;margin-bottom:12px"><div style="font-size:13px;margin-bottom:6px">🎬 '+t+'</div><div style="font-size:11px;color:#888">點擊掃碼觀看</div></div>';});vidEl.innerHTML=v;}})}
+loadContent();
+  render();
 </script>
 </body>
 </html>
