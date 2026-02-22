@@ -680,7 +680,7 @@ function renderA(){
     return '<a href="'+href+'"'+target+' class="art-item'+(isUp?' up-item':'')+'">'
       +'<div class="art-date"><span>'+m[2]+'</span>'+m[1]+'月</div>'
       +'<div class="art-title">'+a.title+'</div>'
-      +'<div class="art-meta">'+(isUp?'<span class="up-badge" data-i18n="upcoming">即將發布</span>':'<span class="art-tag">'+a.tag+'</span>')+'</div>'
+      +'<div class="art-meta">'+(isUp?'<span class="up-badge" data-i18n="upcoming">'+(T['upcoming']||'即將發布')+'</span>':'<span class="art-tag">'+a.tag+'</span>')+'</div>'
       +'</a>';
   }).join('');
   var cnt=document.getElementById('art-count');
