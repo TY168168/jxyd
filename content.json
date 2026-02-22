@@ -1,6 +1,15 @@
 {
   "articles": [
     {
+      "id": "art-004",
+      "title": "佛教里的「自性」到底是该杀还是该捧？从「缘起性空」到「见性成佛」的惊天逆转",
+      "date": "2026-02-22",
+      "cover": "art 004.jpg",
+      "links": {
+        "wechat": "https://mp.weixin.qq.com/s/6-NqYTYkKnMUTWq1KC7KJw"
+      }
+    },
+    {
       "id": "art-003",
       "title": "你的焦慮不是偶然，是一套精密算法：深扒「百八煩惱」的阿毘達磨",
       "date": "2026-02-20",
@@ -16,15 +25,6 @@
       "cover": "art-002.jpg",
       "links": {
         "wechat": "https://mp.weixin.qq.com/s/WBr0iYIXZ6UAF8mpdZFWDg"
-      }
-    },
-    {
-      "id": "art-004",
-      "title": "佛教里的「自性」到底是该杀还是该捧？从「缘起性空」到「见性成佛」的惊天逆转",
-      "date": "2026-02-22",
-      "cover": "art_004.jpg",
-      "links": {
-        "wechat": "https://mp.weixin.qq.com/s/6-NqYTYkKnMUTWq1KC7KJw"
       }
     }
   ],
