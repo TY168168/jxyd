@@ -791,4 +791,14 @@ function toggleBili() {
   arrow.classList.toggle('open', !isOpen);
 }
 function toggleHist() {
-  const sub = document.getElementById('hist-su
+  const sub = document.getElementById('hist-sub');
+  const arrow = document.getElementById('hist-arrow');
+  const isOpen = sub.style.display !== 'none';
+  sub.style.display = isOpen ? 'none' : 'grid';
+  arrow.classList.toggle('open', !isOpen);
+}
+
+render();
+</script>
+</body>
+</html>
