@@ -746,27 +746,6 @@ function addArticle(){
   if(!t||!d){document.getElementById('a-log').textContent='❌ 請填寫標題和日期';return}
   const arr=gCA();arr.unshift({date:d,title:t,tag:document.getElementById('a-tag').value,url:document.getElementById('a-url').value.trim(),status:document.getElementById('a-status').value});
   sA(arr);
-function toggleArt() {
-  const sub = document.getElementById('art-sub');
-  const arrow = document.getElementById('art-arrow');
-  const isOpen = sub.style.display !== 'none';
-  sub.style.display = isOpen ? 'none' : 'grid';
-  arrow.classList.toggle('open', !isOpen);
-}
-function toggleBili() {
-  const sub = document.getElementById('bili-sub');
-  const arrow = document.getElementById('bili-arrow');
-  const isOpen = sub.style.display !== 'none';
-  sub.style.display = isOpen ? 'none' : 'grid';
-  arrow.classList.toggle('open', !isOpen);
-}
-function toggleHist() {
-  const sub = document.getElementById('hist-sub');
-  const arrow = document.getElementById('hist-arrow');
-  const isOpen = sub.style.display !== 'none';
-  sub.style.display = isOpen ? 'none' : 'grid';
-  arrow.classList.toggle('open', !isOpen);
-}
 
 render();document.getElementById('a-log').innerHTML=`✅ 已新增：${t.slice(0,25)}…<br>共 ${allA().length} 篇`;
   document.getElementById('a-title').value='';document.getElementById('a-url').value='';
@@ -812,104 +791,11 @@ function renderML(){
   el.innerHTML=h;
 }
 function delA(i){const a=gCA();a.splice(i,1);sA(a);
-function toggleArt() {
-  const sub = document.getElementById('art-sub');
-  const arrow = document.getElementById('art-arrow');
-  const isOpen = sub.style.display !== 'none';
-  sub.style.display = isOpen ? 'none' : 'grid';
-  arrow.classList.toggle('open', !isOpen);
-}
-function toggleBili() {
-  const sub = document.getElementById('bili-sub');
-  const arrow = document.getElementById('bili-arrow');
-  const isOpen = sub.style.display !== 'none';
-  sub.style.display = isOpen ? 'none' : 'grid';
-  arrow.classList.toggle('open', !isOpen);
-}
-function toggleHist() {
-  const sub = document.getElementById('hist-sub');
-  const arrow = document.getElementById('hist-arrow');
-  const isOpen = sub.style.display !== 'none';
-  sub.style.display = isOpen ? 'none' : 'grid';
-  arrow.classList.toggle('open', !isOpen);
-}
-
 render();renderML()}
 function delV(i){const v=gCV();v.splice(i,1);sV(v);
-function toggleArt() {
-  const sub = document.getElementById('art-sub');
-  const arrow = document.getElementById('art-arrow');
-  const isOpen = sub.style.display !== 'none';
-  sub.style.display = isOpen ? 'none' : 'grid';
-  arrow.classList.toggle('open', !isOpen);
-}
-function toggleBili() {
-  const sub = document.getElementById('bili-sub');
-  const arrow = document.getElementById('bili-arrow');
-  const isOpen = sub.style.display !== 'none';
-  sub.style.display = isOpen ? 'none' : 'grid';
-  arrow.classList.toggle('open', !isOpen);
-}
-function toggleHist() {
-  const sub = document.getElementById('hist-sub');
-  const arrow = document.getElementById('hist-arrow');
-  const isOpen = sub.style.display !== 'none';
-  sub.style.display = isOpen ? 'none' : 'grid';
-  arrow.classList.toggle('open', !isOpen);
-}
 
 render();renderML()}
 function clearAll(){if(confirm('確認清除？')){localStorage.removeItem('jxyd_a');localStorage.removeItem('jxyd_v');
-function toggleArt() {
-  const sub = document.getElementById('art-sub');
-  const arrow = document.getElementById('art-arrow');
-  const isOpen = sub.style.display !== 'none';
-  sub.style.display = isOpen ? 'none' : 'grid';
-  arrow.classList.toggle('open', !isOpen);
-}
-function toggleBili() {
-  const sub = document.getElementById('bili-sub');
-  const arrow = document.getElementById('bili-arrow');
-  const isOpen = sub.style.display !== 'none';
-  sub.style.display = isOpen ? 'none' : 'grid';
-  arrow.classList.toggle('open', !isOpen);
-}
-function toggleHist() {
-  const sub = document.getElementById('hist-sub');
-  const arrow = document.getElementById('hist-arrow');
-  const isOpen = sub.style.display !== 'none';
-  sub.style.display = isOpen ? 'none' : 'grid';
-  arrow.classList.toggle('open', !isOpen);
-}
-
-render();renderML()}}
-
-document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})}));
-const secs=document.querySelectorAll('section');
-window.addEventListener('scroll',()=>{let c='';secs.forEach(s=>{if(window.scrollY>=s.offsetTop-120)c=s.id});document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')=== '#'+c))});
-
-
-function toggleArt() {
-  const sub = document.getElementById('art-sub');
-  const arrow = document.getElementById('art-arrow');
-  const isOpen = sub.style.display !== 'none';
-  sub.style.display = isOpen ? 'none' : 'grid';
-  arrow.classList.toggle('open', !isOpen);
-}
-function toggleBili() {
-  const sub = document.getElementById('bili-sub');
-  const arrow = document.getElementById('bili-arrow');
-  const isOpen = sub.style.display !== 'none';
-  sub.style.display = isOpen ? 'none' : 'grid';
-  arrow.classList.toggle('open', !isOpen);
-}
-function toggleHist() {
-  const sub = document.getElementById('hist-sub');
-  const arrow = document.getElementById('hist-arrow');
-  const isOpen = sub.style.display !== 'none';
-  sub.style.display = isOpen ? 'none' : 'grid';
-  arrow.classList.toggle('open', !isOpen);
-}
 
 function loadContent(){fetch('content.json').then(function(r){return r.json();}).catch(function(){return null;}).then(function(data){if(!data)return;var artEl=document.getElementById('article-list-dynamic');var vidEl=document.getElementById('video-grid-dynamic');if(artEl&&data.articles){var h='';data.articles.forEach(function(a){var d=a.date||'';var t=a.title||'';var url=a.links&&a.links.wechat?a.links.wechat:'#';h+='<div onclick="window.open(\''+url+'\',\'_blank\')" style="cursor:pointer;padding:12px 0;border-bottom:1px solid rgba(0,0,0,.08);display:flex;align-items:center;gap:16px"><div style="min-width:44px;text-align:center;font-size:22px;font-weight:700;color:var(--gold,#b8963e)">'+d.slice(8,10)+'<br><span style="font-size:11px;font-weight:400;color:#888">'+d.slice(5,7)+'月</span></div><div style="flex:1;font-size:14px">'+(a.cover?'<img src="'+a.cover+'" style="width:88px;height:66px;object-fit:cover;border-radius:4px;margin-right:10px;flex-shrink:0">':'')+t+'</div></div>';});artEl.innerHTML=h;}if(vidEl&&data.videos){var v='';data.videos.forEach(function(vid){var t=vid.title||'';v+='<div onclick="showWcPopup()" style="cursor:pointer;background:rgba(0,0,0,.05);border-radius:8px;padding:16px;margin-bottom:12px"><div style="font-size:13px;margin-bottom:6px">'+(vid.cover?'<img src="'+vid.cover+'" style="width:88px;height:66px;object-fit:cover;border-radius:4px;margin-right:10px;float:left">':'')+'🎬 '+t+'</div><div style="font-size:11px;color:#888">點擊掃碼觀看</div><div style="font-size:11px;color:#888;margin-top:4px">'+vid.date.slice(5,7)+'月'+vid.date.slice(8,10)+'日</div></div>';});vidEl.innerHTML=v;}})}
 loadContent();
