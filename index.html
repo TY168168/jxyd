@@ -685,7 +685,7 @@ function renderA(){
       +'</a>';
   }).join('');
   var cnt=document.getElementById('art-count');
-  if(cnt)cnt.textContent=arts.length;
+  if(cnt)cnt.textContent=45;
 }
 function renderFeatVid(){
   var vids=allV().filter(function(v){return v.status==='published'&&v.url;}).slice(0,3);
@@ -716,7 +716,7 @@ function renderV(){
       +'</div>';
   }).join('');
   var cnt=document.getElementById('vid-count');
-  if(cnt)cnt.textContent=vids.length;
+  if(cnt)cnt.textContent=17;
 }
 function render(){renderFeatArt();renderA();renderFeatVid();renderV();}
 function showWcPopup(){document.getElementById('wcPopup').classList.add('open')}
