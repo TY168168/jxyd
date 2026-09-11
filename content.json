@@ -30,30 +30,30 @@
   ],
   "videos": [
     {
-      "id": "vid-001",
-      "title": "一組哲学名词，两套完全不同的含义——「一名二义」现象",
-      "date": "2026-03-04",
-      "cover": "vid-001.png",
+      "id": "vid-006",
+      "title": "中國佛教史 D20｜蓮社：中國人念佛的起點",
+      "date": "2026-09-09",
+      "cover": "vid-006.jpg",
       "links": {
-        "wechat": "https://weixin.qq.com/sph/AsObdK1Rm"
+        "wechat": ""
       }
     },
     {
-      "id": "vid-002",
-      "title": "大家都说「阿毗达磨」是天书，全是枯燥的名词解释？",
-      "date": "2026-02-26",
-      "cover": "vid-002.png",
+      "id": "vid-005",
+      "title": "中國佛教史 D19｜方外之賓：僧俗之間的一條界線",
+      "date": "2026-09-04",
+      "cover": "vid-005.jpg",
       "links": {
-        "wechat": "https://weixin.qq.com/sph/AGSpfpI3u"
+        "wechat": ""
       }
     },
     {
-      "id": "vid-003",
-      "title": "大家以为部派佛教很乱？其实这是佛教最精彩的「寒武纪大爆发」！",
-      "date": "2026-02-26",
-      "cover": "vid-003.png",
+      "id": "vid-004",
+      "title": "中國佛教史 D18｜慧遠：廬山教團的建立",
+      "date": "2026-08-31",
+      "cover": "vid-004.jpg",
       "links": {
-        "wechat": "https://weixin.qq.com/sph/A9u2Ko9IP"
+        "wechat": ""
       }
     }
   ]
