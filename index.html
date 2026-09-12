@@ -4,6 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">金仙羊豆｜佛學讀書會</title>
+<meta name="description" content="金仙羊豆｜佛學讀書會平台：印度佛教史讀書會、維摩詰經解經班，原創文章與短視頻。以文字探問佛法，以讀書會共修學習。">
+<link rel="canonical" href="https://tengyunchiang.com/">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<meta name="theme-color" content="#1a1209">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="金仙羊豆">
+<meta property="og:title" content="金仙羊豆｜佛學讀書會">
+<meta property="og:description" content="以文字探問佛法，以讀書會共修學習——印度佛教史讀書會、維摩詰經解經班、原創文章與短視頻。">
+<meta property="og:url" content="https://tengyunchiang.com/">
+<meta property="og:image" content="https://tengyunchiang.com/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <style>
 :root{--ink:#1a1209;--ink-light:#3d2f1a;--paper:#f5f0e8;--paper-warm:#ede5d4;--gold:#b8902a;--gold-light:#d4a843;--sage:#6b7c5a;--fog:#e8e0d0;--rust:#8b4513;--serif:'Noto Serif TC','Noto Serif CJK TC','Source Han Serif TC','Songti TC','PingFang TC','Microsoft JhengHei',serif;--sans:'Noto Sans TC','Noto Sans CJK TC','PingFang TC','Hiragino Sans','Microsoft JhengHei',sans-serif;--serif-ja:'Noto Serif JP','Noto Serif CJK JP','Hiragino Mincho ProN','Yu Mincho',serif}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -342,6 +356,14 @@ section:nth-child(3){animation-delay:.18s}section:nth-child(4){animation-delay:.
             title="姜登雲自我介紹">
           </iframe>
         </div>
+        <!-- YouTube for overseas users -->
+        <div style="margin-top:12px;padding:10px 14px;background:var(--paper);border:1px solid rgba(26,18,9,.08);border-radius:3px;display:flex;align-items:center;justify-content:space-between">
+          <span style="font-size:11px;color:var(--ink-light)">🌐 境外用戶｜YouTube 觀看</span>
+          <a href="https://www.youtube.com/watch?v=54HUarO-y58" target="_blank" rel="noopener noreferrer"
+             style="font-size:10px;color:var(--gold);letter-spacing:.1em;text-decoration:none;border:1px solid var(--gold);padding:3px 10px">
+            ▶ YouTube →
+          </a>
+        </div>
         <!-- Baidu Pan for China users -->
         <div style="margin-top:12px;padding:10px 14px;background:var(--paper);border:1px solid rgba(26,18,9,.08);border-radius:3px;display:flex;align-items:center;justify-content:space-between">
           <span style="font-size:11px;color:var(--ink-light)">🇨🇳 境內用戶｜百度網盤觀看</span>
@@ -365,7 +387,7 @@ section:nth-child(3){animation-delay:.18s}section:nth-child(4){animation-delay:.
       <span class="qr-lbl" data-i18n="qr-official">微信公眾號</span>
     </div>
     <div class="qr-box">
-<img src="video-qr.png" style="width:180px;display:block;margin:1rem auto">      <span class="qr-lbl" data-i18n="qr-video">視頻號</span>
+<img src="video-qr.png" style="width:180px;display:block;margin:1rem auto" alt="微信視頻號二維碼">      <span class="qr-lbl" data-i18n="qr-video">視頻號</span>
     </div>
   </div>
   <p data-i18n="footer-desc">以文字探問佛法，以讀書會共修學習</p>
@@ -422,7 +444,7 @@ function toggleArt(){toggleSub('art-sub','art-arrow')}
 function toggleBili(){toggleSub('bili-sub','bili-arrow')}
 function toggleHist(){toggleSub('hist-sub','hist-arrow')}
 
-function loadContent(){fetch('content.json').then(function(r){return r.json();}).catch(function(){return null;}).then(function(data){if(!data)return;var artEl=document.getElementById('article-list-dynamic');var vidEl=document.getElementById('video-grid-dynamic');if(artEl&&data.articles){var h='';data.articles.forEach(function(a){var d=a.date||'';var t=a.title||'';var url=a.links&&a.links.wechat?a.links.wechat:'#';h+='<div onclick="window.open(\''+url+'\',\'_blank\',\'noopener\')" style="cursor:pointer;padding:12px 0;border-bottom:1px solid rgba(0,0,0,.08);display:flex;align-items:center;gap:16px"><div style="min-width:44px;text-align:center;font-size:22px;font-weight:700;color:var(--gold,#b8963e)">'+d.slice(8,10)+'<br><span style="font-size:11px;font-weight:400;color:#888">'+d.slice(5,7)+'月</span></div><div style="flex:1;font-size:14px">'+(a.cover?'<img src="'+a.cover+'" style="width:88px;height:66px;object-fit:cover;border-radius:4px;margin-right:10px;flex-shrink:0">':'')+t+'</div></div>';});artEl.innerHTML=h;}if(vidEl&&data.videos){var v='';data.videos.forEach(function(vid){var t=vid.title||'';v+='<div onclick="showWcPopup()" style="cursor:pointer;background:rgba(0,0,0,.05);border-radius:8px;padding:16px;margin-bottom:12px"><div style="font-size:13px;margin-bottom:6px">'+(vid.cover?'<img src="'+vid.cover+'" style="width:88px;height:66px;object-fit:cover;border-radius:4px;margin-right:10px;float:left">':'')+'🎬 '+t+'</div><div style="font-size:11px;color:#888">點擊掃碼觀看</div><div style="font-size:11px;color:#888;margin-top:4px">'+vid.date.slice(5,7)+'月'+vid.date.slice(8,10)+'日</div></div>';});vidEl.innerHTML=v;}})}
+function loadContent(){fetch('content.json').then(function(r){return r.json();}).catch(function(){return null;}).then(function(data){if(!data)return;var artEl=document.getElementById('article-list-dynamic');var vidEl=document.getElementById('video-grid-dynamic');if(artEl&&data.articles){var h='';data.articles.forEach(function(a){var d=a.date||'';var t=a.title||'';var url=a.links&&a.links.wechat?a.links.wechat:'#';h+='<div onclick="window.open(\''+url+'\',\'_blank\',\'noopener\')" style="cursor:pointer;padding:12px 0;border-bottom:1px solid rgba(0,0,0,.08);display:flex;align-items:center;gap:16px"><div style="min-width:44px;text-align:center;font-size:22px;font-weight:700;color:var(--gold,#b8963e)">'+d.slice(8,10)+'<br><span style="font-size:11px;font-weight:400;color:#888">'+d.slice(5,7)+'月</span></div><div style="flex:1;font-size:14px">'+(a.cover?'<img src="'+a.cover+'" alt="'+t.replace(/"/g,'&quot;')+'" style="width:88px;height:66px;object-fit:cover;border-radius:4px;margin-right:10px;flex-shrink:0">':'')+t+'</div></div>';});artEl.innerHTML=h;}if(vidEl&&data.videos){var v='';data.videos.forEach(function(vid){var t=vid.title||'';v+='<div onclick="showWcPopup()" style="cursor:pointer;background:rgba(0,0,0,.05);border-radius:8px;padding:16px;margin-bottom:12px"><div style="font-size:13px;margin-bottom:6px">'+(vid.cover?'<img src="'+vid.cover+'" alt="'+t.replace(/"/g,'&quot;')+'" style="width:88px;height:66px;object-fit:cover;border-radius:4px;margin-right:10px;float:left">':'')+'🎬 '+t+'</div><div style="font-size:11px;color:#888">點擊掃碼觀看</div><div style="font-size:11px;color:#888;margin-top:4px">'+vid.date.slice(5,7)+'月'+vid.date.slice(8,10)+'日</div></div>';});vidEl.innerHTML=v;}})}
 loadContent();
 </script>
 </body>
