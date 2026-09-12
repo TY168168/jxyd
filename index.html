@@ -4,17 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">金仙羊豆｜佛學讀書會</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400&family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#1a1209;--ink-light:#3d2f1a;--paper:#f5f0e8;--paper-warm:#ede5d4;--gold:#b8902a;--gold-light:#d4a843;--sage:#6b7c5a;--fog:#e8e0d0;--rust:#8b4513}
+:root{--ink:#1a1209;--ink-light:#3d2f1a;--paper:#f5f0e8;--paper-warm:#ede5d4;--gold:#b8902a;--gold-light:#d4a843;--sage:#6b7c5a;--fog:#e8e0d0;--rust:#8b4513;--serif:'Noto Serif TC','Noto Serif CJK TC','Source Han Serif TC','Songti TC','PingFang TC','Microsoft JhengHei',serif;--sans:'Noto Sans TC','Noto Sans CJK TC','PingFang TC','Hiragino Sans','Microsoft JhengHei',sans-serif;--serif-ja:'Noto Serif JP','Noto Serif CJK JP','Hiragino Mincho ProN','Yu Mincho',serif}
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--paper);color:var(--ink);font-family:'Noto Serif TC',serif;font-weight:300;overflow-x:hidden}
-body.lang-ja{font-family:'Noto Serif JP',serif}
+body{background:var(--paper);color:var(--ink);font-family:var(--serif);font-weight:300;overflow-x:hidden}
+body.lang-ja{font-family:var(--serif-ja)}
 body.lang-en{font-family:Georgia,serif}
 
 /* LANG SWITCHER */
 .lang-bar{background:var(--ink);display:flex;justify-content:flex-end;padding:6px 80px;gap:2px}
-.lang-btn{padding:4px 10px;font-size:10px;letter-spacing:.12em;color:rgba(245,240,232,.35);background:none;border:none;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:color .2s;border-bottom:1px solid transparent}
+.lang-btn{padding:4px 10px;font-size:10px;letter-spacing:.12em;color:rgba(245,240,232,.35);background:none;border:none;cursor:pointer;font-family:var(--sans);transition:color .2s;border-bottom:1px solid transparent}
 .lang-btn:hover{color:rgba(245,240,232,.7)}
 .lang-btn.active{color:var(--gold-light);border-bottom-color:var(--gold)}
 
@@ -23,83 +22,54 @@ header{position:relative;background:var(--ink);min-height:310px;display:flex;fle
 .ink-ring{position:absolute;right:-80px;top:50%;transform:translateY(-50%);width:400px;height:400px;border-radius:50%;border:1px solid rgba(184,144,42,.15);opacity:.4}
 .ink-ring::before{content:'';position:absolute;inset:30px;border-radius:50%;border:1px solid rgba(184,144,42,.1)}
 .hc{position:relative;z-index:2;padding:46px 80px;animation:fadeUp .9s ease both}
-.eyebrow{font-family:'Noto Sans TC',sans-serif;font-size:11px;letter-spacing:.3em;color:var(--gold);margin-bottom:12px;opacity:.8}
+.eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.3em;color:var(--gold);margin-bottom:12px;opacity:.8}
 .site-title{font-size:clamp(40px,6vw,68px);font-weight:700;color:var(--paper);letter-spacing:.18em;line-height:1;margin-bottom:8px}
 .site-title span{color:var(--gold-light)}
 .site-sub{font-size:13px;color:rgba(245,240,232,.45);letter-spacing:.2em;margin-bottom:32px}
 .stats{display:flex;gap:32px;align-items:center}
 .stat-num{display:block;font-size:25px;font-weight:500;color:var(--gold-light);line-height:1}
-.stat-lbl{display:block;font-size:10px;color:rgba(245,240,232,.4);letter-spacing:.1em;margin-top:3px;font-family:'Noto Sans TC',sans-serif}
+.stat-lbl{display:block;font-size:10px;color:rgba(245,240,232,.4);letter-spacing:.1em;margin-top:3px;font-family:var(--sans)}
 .sdiv{width:1px;height:32px;background:rgba(184,144,42,.2)}
 
 nav{background:var(--paper-warm);border-bottom:1px solid rgba(26,18,9,.1);padding:0 80px;display:flex;position:sticky;top:0;z-index:100;overflow-x:auto}
-nav a{padding:16px 18px;font-size:12px;letter-spacing:.12em;color:var(--ink-light);text-decoration:none;font-family:'Noto Sans TC',sans-serif;white-space:nowrap;border-bottom:2px solid transparent;transition:all .3s}
+nav a{padding:16px 18px;font-size:12px;letter-spacing:.12em;color:var(--ink-light);text-decoration:none;font-family:var(--sans);white-space:nowrap;border-bottom:2px solid transparent;transition:all .3s}
 nav a:hover,nav a.active{color:var(--gold);border-bottom-color:var(--gold)}
-.admin-btn{margin-left:auto;padding:16px 18px;font-size:11px;color:rgba(26,18,9,.25);cursor:pointer;font-family:'Noto Sans TC',sans-serif;background:none;border:none;white-space:nowrap;transition:color .3s;letter-spacing:.05em}
-.admin-btn:hover{color:var(--gold)}
 
 main{max-width:1100px;margin:0 auto;padding:52px 40px}
 section{margin-bottom:68px;animation:fadeUp .8s ease both}
 .sec-hdr{display:flex;align-items:baseline;gap:14px;margin-bottom:28px;padding-bottom:12px;border-bottom:1px solid rgba(26,18,9,.1)}
 .sec-title{font-size:19px;font-weight:500;letter-spacing:.15em}
 .sec-title::before{content:'｜';color:var(--gold);margin-right:8px;font-weight:300}
-.sec-count{font-size:11px;color:var(--gold);letter-spacing:.08em;font-family:'Noto Sans TC',sans-serif}
+.sec-count{font-size:11px;color:var(--gold);letter-spacing:.08em;font-family:var(--sans)}
 
 .club-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .club-card{background:var(--paper-warm);border:1px solid rgba(26,18,9,.08);padding:30px;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s}
 .club-card:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(26,18,9,.1)}
 .club-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold)}
 .club-card.upcoming::before{background:var(--sage)}
-.club-tag{display:inline-block;font-size:10px;letter-spacing:.18em;padding:3px 8px;border:1px solid;margin-bottom:12px;font-family:'Noto Sans TC',sans-serif}
+.club-tag{display:inline-block;font-size:10px;letter-spacing:.18em;padding:3px 8px;border:1px solid;margin-bottom:12px;font-family:var(--sans)}
 .club-card:not(.upcoming) .club-tag{color:var(--gold);border-color:var(--gold);background:rgba(184,144,42,.05)}
 .club-card.upcoming .club-tag{color:var(--sage);border-color:var(--sage);background:rgba(107,124,90,.05)}
 .club-name{font-size:18px;font-weight:500;letter-spacing:.06em;margin-bottom:10px;line-height:1.4}
-.club-desc{font-size:12px;color:rgba(26,18,9,.5);line-height:1.9;margin-bottom:16px;font-family:'Noto Sans TC',sans-serif;font-weight:300}
+.club-desc{font-size:12px;color:rgba(26,18,9,.5);line-height:1.9;margin-bottom:16px;font-family:var(--sans);font-weight:300}
 .prog-bar{background:rgba(26,18,9,.08);height:2px;margin-bottom:6px}
 .prog-fill{height:100%;background:var(--gold)}
-.prog-lbl{display:flex;justify-content:space-between;font-size:10px;color:rgba(26,18,9,.4);font-family:'Noto Sans TC',sans-serif}
-.club-link{margin-top:16px;display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.12em;color:var(--gold);font-family:'Noto Sans TC',sans-serif;text-decoration:none;transition:gap .3s}
+.prog-lbl{display:flex;justify-content:space-between;font-size:10px;color:rgba(26,18,9,.4);font-family:var(--sans)}
+.club-link{margin-top:16px;display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.12em;color:var(--gold);font-family:var(--sans);text-decoration:none;transition:gap .3s}
 .club-link:hover{gap:14px}
-.signup-btn{display:inline-block;margin-top:16px;padding:10px 24px;background:var(--sage);color:var(--paper);font-size:11px;letter-spacing:.18em;font-family:'Noto Sans TC',sans-serif;border:none;cursor:pointer;transition:background .3s;text-decoration:none}
-.signup-btn:hover{background:var(--ink)}
 
-.article-list{display:grid;gap:2px}
-.art-item{display:grid;grid-template-columns:72px 1fr auto;align-items:center;gap:16px;padding:15px 18px;background:var(--paper-warm);border:1px solid rgba(26,18,9,.06);transition:background .2s;text-decoration:none;color:inherit}
-.art-item:hover{background:var(--fog)}
-.art-item.up-item{opacity:.55;cursor:default;pointer-events:none}
-.art-date{font-size:10px;color:var(--gold);letter-spacing:.06em;font-family:'Noto Sans TC',sans-serif;text-align:center;line-height:1.4}
-.art-date span{display:block;font-size:18px;font-weight:500;color:var(--ink-light);font-family:'Noto Serif TC',serif}
-.art-title{font-size:12.5px;line-height:1.65;letter-spacing:.03em}
-.art-badge{font-size:10px;padding:2px 6px;border:1px solid;white-space:nowrap;font-family:'Noto Sans TC',sans-serif}
-.b-norm{border-color:rgba(26,18,9,.15);color:rgba(26,18,9,.4)}
-.b-up{border-color:var(--sage);color:var(--sage);background:rgba(107,124,90,.05)}
-.view-more{display:block;text-align:center;margin-top:16px;padding:12px;border:1px solid rgba(26,18,9,.15);font-size:11px;letter-spacing:.18em;color:var(--ink-light);text-decoration:none;font-family:'Noto Sans TC',sans-serif;transition:all .3s}
+.view-more{display:block;text-align:center;margin-top:16px;padding:12px;border:1px solid rgba(26,18,9,.15);font-size:11px;letter-spacing:.18em;color:var(--ink-light);text-decoration:none;font-family:var(--sans);transition:all .3s}
 .view-more:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 
-.video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.vid-card{background:var(--paper-warm);border:1px solid rgba(26,18,9,.08);overflow:hidden;transition:transform .3s;text-decoration:none;color:inherit;display:block;cursor:pointer}
-.vid-card:hover{transform:translateY(-3px)}
-.vid-card.up-vid{opacity:.55;pointer-events:none}
-.vid-thumb{aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.vid-bg{position:absolute;inset:0}
-.play-btn{position:relative;z-index:2;width:38px;height:38px;border:1.5px solid rgba(245,240,232,.5);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .3s}
-.vid-card:hover .play-btn{background:var(--gold);border-color:var(--gold)}
-.play-btn::after{content:'';border-style:solid;border-width:7px 0 7px 11px;border-color:transparent transparent transparent rgba(245,240,232,.85);margin-left:3px}
-.wechat-hint{position:absolute;bottom:0;left:0;right:0;background:rgba(26,18,9,.75);color:rgba(245,240,232,.7);font-size:10px;text-align:center;padding:5px;font-family:'Noto Sans TC',sans-serif;letter-spacing:.05em;transform:translateY(100%);transition:transform .2s;z-index:3}
-.vid-card:hover .wechat-hint{transform:translateY(0)}
-.soon-lbl{position:relative;z-index:2;font-size:11px;color:rgba(245,240,232,.4);font-family:'Noto Sans TC',sans-serif;letter-spacing:.08em}
-.vid-info{padding:12px}
-.vid-title{font-size:11.5px;line-height:1.65;letter-spacing:.02em;margin-bottom:6px}
-.vid-meta{font-size:10px;color:rgba(26,18,9,.4);font-family:'Noto Sans TC',sans-serif;display:flex;gap:8px}
 
 /* WECHAT POPUP */
 .wc-popup{display:none;position:fixed;inset:0;background:rgba(26,18,9,.7);z-index:400;align-items:center;justify-content:center}
 .wc-popup.open{display:flex}
 .wc-box{background:var(--paper);padding:40px;text-align:center;max-width:320px;width:90%}
 .wc-box h4{font-size:16px;letter-spacing:.1em;margin-bottom:8px;font-weight:500}
-.wc-box p{font-size:12px;color:rgba(26,18,9,.5);font-family:'Noto Sans TC',sans-serif;margin-bottom:20px;line-height:1.8}
+.wc-box p{font-size:12px;color:rgba(26,18,9,.5);font-family:var(--sans);margin-bottom:20px;line-height:1.8}
 .wc-qr{width:150px;height:150px;margin:0 auto 14px;border:3px solid rgba(184,144,42,.2)}
-.wc-close{padding:10px 24px;background:var(--ink);color:var(--paper);font-size:11px;letter-spacing:.15em;font-family:'Noto Sans TC',sans-serif;border:none;cursor:pointer;transition:background .2s}
+.wc-close{padding:10px 24px;background:var(--ink);color:var(--paper);font-size:11px;letter-spacing:.15em;font-family:var(--sans);border:none;cursor:pointer;transition:background .2s}
 .wc-close:hover{background:var(--gold)}
 
 .mat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
@@ -107,81 +77,29 @@ section{margin-bottom:68px;animation:fadeUp .8s ease both}
 .mat-card:hover{background:var(--fog)}
 .mat-icon{font-size:20px;line-height:1;flex-shrink:0}
 .mat-title{font-size:13px;margin-bottom:3px;letter-spacing:.04em}
-.mat-meta{font-size:11px;color:rgba(26,18,9,.4);font-family:'Noto Sans TC',sans-serif}
-.ext-note{font-size:10px;color:var(--sage);font-family:'Noto Sans TC',sans-serif;margin-top:3px}
+.mat-meta{font-size:11px;color:rgba(26,18,9,.4);font-family:var(--sans)}
+.ext-note{font-size:10px;color:var(--sage);font-family:var(--sans);margin-top:3px}
 
 .res-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 .res-card{display:flex;align-items:center;gap:16px;padding:16px 20px;background:var(--paper-warm);border:1px solid rgba(26,18,9,.08);text-decoration:none;color:inherit;transition:background .2s}
 .res-card:hover{background:var(--fog)}
-.res-icon{width:40px;height:40px;background:var(--ink);color:var(--gold-light);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;font-weight:700;font-family:'Noto Sans TC',sans-serif}
+.res-icon{width:40px;height:40px;background:var(--ink);color:var(--gold-light);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;font-weight:700;font-family:var(--sans)}
 .res-name{font-size:12.5px;font-weight:400;margin-bottom:2px;letter-spacing:.04em}
-.res-desc{font-size:11px;color:rgba(26,18,9,.45);font-family:'Noto Sans TC',sans-serif}
-.ext-tag{display:inline-block;font-size:9px;padding:1px 5px;border:1px solid rgba(107,124,90,.4);color:var(--sage);font-family:'Noto Sans TC',sans-serif;margin-top:3px;letter-spacing:.05em}
+.res-desc{font-size:11px;color:rgba(26,18,9,.45);font-family:var(--sans)}
+.ext-tag{display:inline-block;font-size:9px;padding:1px 5px;border:1px solid rgba(107,124,90,.4);color:var(--sage);font-family:var(--sans);margin-top:3px;letter-spacing:.05em}
 
-footer{background:var(--ink);color:rgba(245,240,232,.4);text-align:center;padding:44px;font-size:12px;letter-spacing:.15em;font-family:'Noto Sans TC',sans-serif;font-weight:300}
-.f-name{font-size:18px;color:var(--gold);letter-spacing:.3em;font-family:'Noto Serif TC',serif;font-weight:500;display:block;margin-bottom:14px}
+footer{background:var(--ink);color:rgba(245,240,232,.4);text-align:center;padding:44px;font-size:12px;letter-spacing:.15em;font-family:var(--sans);font-weight:300}
+.f-name{font-size:18px;color:var(--gold);letter-spacing:.3em;font-family:var(--serif);font-weight:500;display:block;margin-bottom:14px}
 .qr-area{display:flex;justify-content:center;gap:48px;margin:22px 0 16px}
 .qr-box{text-align:center}
 .qr-box img{width:100px;height:100px;border:2px solid rgba(184,144,42,.25);display:block;margin:0 auto 8px}
 .qr-ph{width:100px;height:100px;border:1px solid rgba(184,144,42,.2);display:flex;align-items:center;justify-content:center;font-size:10px;color:rgba(245,240,232,.2);margin:0 auto 8px;line-height:1.6;text-align:center}
 .qr-lbl{font-size:11px;letter-spacing:.1em;color:rgba(245,240,232,.35)}
 
-/* ADMIN */
-.admin-panel{display:none;position:fixed;inset:0;background:rgba(26,18,9,.88);z-index:600;overflow-y:auto;padding:16px}
-.admin-panel.open{display:flex;align-items:flex-start;justify-content:center}
-.admin-box{background:var(--paper);width:100%;max-width:600px;margin:16px auto;padding:36px;position:relative}
-.admin-title{font-size:17px;letter-spacing:.1em;font-weight:500;margin-bottom:5px}
-.admin-sub{font-size:11px;color:rgba(26,18,9,.45);font-family:'Noto Sans TC',sans-serif;margin-bottom:24px;line-height:1.9}
-.atabs{display:flex;border-bottom:1px solid rgba(26,18,9,.1);margin-bottom:22px}
-.atab{padding:9px 16px;font-size:11px;letter-spacing:.1em;font-family:'Noto Sans TC',sans-serif;cursor:pointer;border:none;border-bottom:2px solid transparent;background:none;color:rgba(26,18,9,.4);transition:all .2s}
-.atab.active{color:var(--gold);border-bottom-color:var(--gold)}
-.aform{display:none}.aform.active{display:block}
-.fg{margin-bottom:12px}
-.fg label{display:block;font-size:10px;letter-spacing:.12em;color:rgba(26,18,9,.45);font-family:'Noto Sans TC',sans-serif;margin-bottom:4px}
-.fg input,.fg select{width:100%;padding:9px;border:1px solid rgba(26,18,9,.2);background:var(--paper-warm);font-family:'Noto Serif TC',serif;font-size:13px;color:var(--ink);outline:none;transition:border-color .2s}
-.fg input:focus,.fg select:focus{border-color:var(--gold)}
-.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.btn-add{width:100%;padding:12px;background:var(--ink);color:var(--paper);font-family:'Noto Sans TC',sans-serif;font-size:11px;letter-spacing:.18em;border:none;cursor:pointer;margin-top:6px;transition:background .2s}
-.btn-add:hover{background:var(--gold)}
-.alog{margin-top:14px;padding:10px;background:var(--fog);font-size:11px;font-family:'Noto Sans TC',sans-serif;color:rgba(26,18,9,.6);min-height:32px;line-height:1.9;max-height:90px;overflow-y:auto}
-.anote{font-size:10px;color:rgba(26,18,9,.4);font-family:'Noto Sans TC',sans-serif;line-height:1.9;margin-top:14px;padding-top:12px;border-top:1px solid rgba(26,18,9,.08)}
-.btn-x{position:absolute;top:14px;right:16px;background:none;border:none;font-size:20px;cursor:pointer;color:var(--ink-light);opacity:.35;transition:opacity .2s}
-.btn-x:hover{opacity:.9}
-
-/* PASSWORD GATE */
-.pw-gate{position:fixed;inset:0;background:rgba(26,18,9,.92);z-index:700;display:none;align-items:center;justify-content:center}
-.pw-gate.open{display:flex}
-.pw-box{background:var(--paper);padding:40px;max-width:360px;width:90%;text-align:center}
-.pw-box h4{font-size:16px;letter-spacing:.1em;margin-bottom:6px;font-weight:500}
-.pw-box p{font-size:11px;color:rgba(26,18,9,.45);font-family:'Noto Sans TC',sans-serif;margin-bottom:20px}
-.pw-input{width:100%;padding:12px;border:1px solid rgba(26,18,9,.2);background:var(--paper-warm);font-size:16px;text-align:center;letter-spacing:.3em;outline:none;font-family:monospace;margin-bottom:12px}
-.pw-input:focus{border-color:var(--gold)}
-.pw-err{font-size:11px;color:var(--rust);font-family:'Noto Sans TC',sans-serif;margin-bottom:10px;min-height:16px}
-.pw-btn{width:100%;padding:12px;background:var(--ink);color:var(--paper);font-family:'Noto Sans TC',sans-serif;font-size:12px;letter-spacing:.2em;border:none;cursor:pointer;transition:background .2s}
-.pw-btn:hover{background:var(--gold)}
-.pw-cancel{display:block;margin-top:10px;font-size:11px;color:rgba(26,18,9,.35);cursor:pointer;font-family:'Noto Sans TC',sans-serif;text-decoration:none;background:none;border:none;width:100%}
-
-/* MODAL */
-.modal-wrap{position:fixed;inset:0;background:rgba(26,18,9,.7);z-index:500;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}
-.modal-wrap.open{opacity:1;pointer-events:all}
-.modal{background:var(--paper);max-width:440px;width:90%;padding:40px;transform:translateY(20px);transition:transform .3s}
-.modal-wrap.open .modal{transform:translateY(0)}
-.m-title{font-size:17px;letter-spacing:.1em;margin-bottom:6px;font-weight:500}
-.m-sub{font-size:11px;color:rgba(26,18,9,.5);margin-bottom:22px;font-family:'Noto Sans TC',sans-serif;line-height:1.9}
-.mfg{margin-bottom:12px}
-.mfg label{display:block;font-size:10px;letter-spacing:.12em;color:rgba(26,18,9,.5);font-family:'Noto Sans TC',sans-serif;margin-bottom:4px}
-.mfg input,.mfg textarea{width:100%;padding:10px;border:1px solid rgba(26,18,9,.2);background:var(--paper-warm);font-family:'Noto Serif TC',serif;font-size:13px;color:var(--ink);outline:none}
-.mfg textarea{height:68px;resize:none}
-.m-acts{display:flex;gap:10px;margin-top:18px}
-.btn-sub{flex:1;padding:12px;background:var(--ink);color:var(--paper);font-family:'Noto Sans TC',sans-serif;font-size:11px;letter-spacing:.18em;border:none;cursor:pointer;transition:background .2s}
-.btn-sub:hover{background:var(--gold)}
-.btn-can{padding:12px 18px;background:none;border:1px solid rgba(26,18,9,.2);font-family:'Noto Sans TC',sans-serif;font-size:11px;color:rgba(26,18,9,.5);cursor:pointer}
-
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 section:nth-child(1){animation-delay:.08s}section:nth-child(2){animation-delay:.13s}
 section:nth-child(3){animation-delay:.18s}section:nth-child(4){animation-delay:.23s}section:nth-child(5){animation-delay:.28s}
-@media(max-width:768px){.lang-bar,.hc{padding-left:20px;padding-right:20px}.lang-bar{padding:6px 20px}nav{padding:0 10px}main{padding:36px 16px}.club-grid,.mat-grid,.res-grid{grid-template-columns:1fr}.video-grid{grid-template-columns:1fr 1fr}.art-item{grid-template-columns:58px 1fr}.art-badge{display:none}.stats{gap:16px}}
-@media(max-width:480px){.video-grid{grid-template-columns:1fr}}
+@media(max-width:768px){.lang-bar,.hc{padding-left:20px;padding-right:20px}.lang-bar{padding:6px 20px}nav{padding:0 10px}main{padding:36px 16px}.club-grid,.mat-grid,.res-grid{grid-template-columns:1fr}.stats{gap:16px}}
 
 .header-guanyin {
   position: absolute;
@@ -226,27 +144,7 @@ section:nth-child(3){animation-delay:.18s}section:nth-child(4){animation-delay:.
 .hist-item { font-size: 12px; color: var(--ink-light); text-decoration: none; padding: 7px 12px; background: rgba(26,18,9,.03); border: 1px solid rgba(26,18,9,.06); display: block; transition: background .2s; letter-spacing: .04em; }
 .hist-item:hover:not(.hist-pending) { background: rgba(184,144,42,.08); color: var(--gold); }
 .hist-pending { opacity: .5; cursor: default; pointer-events: none; }
-.hist-vpn-note { font-size: 10px; color: var(--rust); font-family: 'Noto Sans TC', sans-serif; margin-top: 8px; opacity: .7; }
-
-.featured-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:4px}
-.feat-card{background:var(--ink);border:1px solid rgba(184,144,42,.15);overflow:hidden;text-decoration:none;color:var(--paper);display:block;transition:transform .3s,box-shadow .3s;position:relative}
-.feat-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(26,18,9,.25)}
-.feat-thumb{aspect-ratio:16/9;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
-.feat-thumb-bg{position:absolute;inset:0}
-.feat-thumb-char{position:relative;z-index:2;font-size:52px;opacity:.25;font-weight:700;font-family:'Noto Serif TC',serif;color:var(--gold-light);pointer-events:none}
-.feat-tag{position:absolute;top:10px;left:10px;z-index:3;font-size:9px;padding:2px 7px;background:rgba(184,144,42,.85);color:var(--ink);letter-spacing:.1em;font-family:'Noto Sans TC',sans-serif}
-.feat-body{padding:14px}
-.feat-date{font-size:10px;color:var(--gold);font-family:'Noto Sans TC',sans-serif;margin-bottom:6px;letter-spacing:.06em}
-.feat-title{font-size:12px;line-height:1.7;letter-spacing:.02em;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.feat-vid-card{background:var(--ink);border:1px solid rgba(184,144,42,.15);overflow:hidden;display:block;cursor:pointer;transition:transform .3s,box-shadow .3s;position:relative}
-.feat-vid-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(26,18,9,.25)}
-.feat-vid-card .feat-thumb{cursor:pointer}
-.feat-vid-play{position:relative;z-index:2;width:44px;height:44px;border:2px solid rgba(245,240,232,.4);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .3s}
-.feat-vid-card:hover .feat-vid-play{background:var(--gold);border-color:var(--gold)}
-.feat-vid-play::after{content:'';border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent rgba(245,240,232,.85);margin-left:3px}
-.feat-views{font-size:10px;color:rgba(245,240,232,.4);font-family:'Noto Sans TC',sans-serif;margin-top:4px}
-@media(max-width:768px){.featured-cards{grid-template-columns:1fr 1fr}}
-@media(max-width:480px){.featured-cards{grid-template-columns:1fr}}
+.hist-vpn-note { font-size: 10px; color: var(--rust); font-family: var(--sans); margin-top: 8px; opacity: .7; }
 
 .header-gallery{position:absolute;right:0;top:0;bottom:0;left:35%;display:flex;gap:0;align-items:stretch;overflow:hidden;pointer-events:none}
 .hg-slot{overflow:hidden;opacity:.15;filter:sepia(.5)}
@@ -297,7 +195,6 @@ section:nth-child(3){animation-delay:.18s}section:nth-child(4){animation-delay:.
   <a href="#materials" data-i18n="nav-materials">學習材料</a>
   <a href="#resources" data-i18n="nav-resources">推薦資源</a>
   <a href="#about" data-i18n="nav-about">關於</a>
-  <button class="admin-btn" onclick="openPwGate()">⚙</button>
 </nav>
 
 <main>
@@ -309,7 +206,7 @@ section:nth-child(3){animation-delay:.18s}section:nth-child(4){animation-delay:.
       <h3 class="club-name" data-i18n="club1-name">印度佛教史讀書會</h3>
       <p class="club-desc" data-i18n="club1-desc">2026 年 7 月起進入第二輪，雙週線上共讀平川彰《印度佛教史》，成員輪流領讀。系統梳理從原始佛教到大乘興起的歷史脈絡，探討部派分裂與佛陀觀的演變。</p>
       <div class="prog-lbl"><span data-i18n="online">線上進行中</span></div>
-      <a href="https://pan.baidu.com/s/5sbYXQ9THKGDTMfIGf2i6Ww" target="_blank" class="club-link" data-i18n="download-materials">下載本期材料 →</a>
+      <a href="https://pan.baidu.com/s/5sbYXQ9THKGDTMfIGf2i6Ww" target="_blank" rel="noopener noreferrer" class="club-link" data-i18n="download-materials">下載本期材料 →</a>
     </div>
     <div class="club-card">
       <span class="club-tag" data-i18n="club-active">進行中</span>
@@ -327,36 +224,32 @@ section:nth-child(3){animation-delay:.18s}section:nth-child(4){animation-delay:.
 
 <section id="articles">
   <div class="sec-hdr"><h2 class="sec-title" data-i18n="sec-articles">原創文章</h2><span class="sec-count" id="art-label">共 45 篇</span></div>
-  <div class="featured-cards" id="feat-art" style="display:none"></div>
-  <div class="article-list" id="art-list" style="display:none" style="margin-top:12px"></div>
 <div id="article-list-dynamic"></div>
-  <a href="https://mp.weixin.qq.com" target="_blank" class="view-more" data-i18n="view-all-articles">前往微信公眾號查看全部文章 →</a>
+  <a href="https://mp.weixin.qq.com" target="_blank" rel="noopener noreferrer" class="view-more" data-i18n="view-all-articles">前往微信公眾號查看全部文章 →</a>
 </section>
 
 <section id="videos">
   <div class="sec-hdr"><h2 class="sec-title" data-i18n="sec-videos">短視頻</h2><span class="sec-count" id="vid-label">共 66 部</span></div>
-  <p style="font-size:11px;color:var(--sage);font-family:'Noto Sans TC',sans-serif;margin:-14px 0 18px;letter-spacing:.05em" data-i18n="vid-series">🎬 系列：漢傳佛教史（已更新至第 20 集）｜唯識 31 天｜印度佛教史</p>
-  <div class="featured-cards" id="feat-vid" style="display:none"></div>
-  <div class="video-grid" id="vid-list" style="display:none" style="margin-top:12px"></div>
+  <p style="font-size:11px;color:var(--sage);font-family:var(--sans);margin:-14px 0 18px;letter-spacing:.05em" data-i18n="vid-series">🎬 系列：漢傳佛教史（已更新至第 20 集）｜唯識 31 天｜印度佛教史</p>
 <div id="video-grid-dynamic"></div>
   <div style="margin-top:14px;padding:14px;background:rgba(107,124,90,.08);border-left:3px solid var(--sage)">
-    <p style="font-size:11px;color:rgba(26,18,9,.55);font-family:'Noto Sans TC',sans-serif;line-height:1.8" data-i18n="video-note">💡 視頻號連結只能在微信App內打開。請在手機微信搜尋「金仙羊豆」或掃描下方二維碼，直接在視頻號觀看。</p>
+    <p style="font-size:11px;color:rgba(26,18,9,.55);font-family:var(--sans);line-height:1.8" data-i18n="video-note">💡 視頻號連結只能在微信App內打開。請在手機微信搜尋「金仙羊豆」或掃描下方二維碼，直接在視頻號觀看。</p>
   </div>
 </section>
 
 <section id="materials">
   <div class="sec-hdr"><h2 class="sec-title" data-i18n="sec-materials">學習材料下載</h2><span class="sec-count" data-i18n="materials-sub">百度網盤</span></div>
   <div class="mat-grid">
-    <a href="https://pan.baidu.com/s/5sbYXQ9THKGDTMfIGf2i6Ww" target="_blank" class="mat-card">
+    <a href="https://pan.baidu.com/s/5sbYXQ9THKGDTMfIGf2i6Ww" target="_blank" rel="noopener noreferrer" class="mat-card">
       <span class="mat-icon">📂</span><div><p class="mat-title" data-i18n="mat1">印度佛教史讀書會</p><p class="mat-meta" data-i18n="mat1-meta">閱讀材料｜討論問題｜會後短文</p><p class="ext-note">↗ 百度網盤（境內外可用）</p></div>
     </a>
     <a href="https://pan.baidu.com/s/1gBwBD3OwlKj3VOlU856JCg?pwd=1111" target="_blank" rel="noopener noreferrer" class="mat-card">
       <span class="mat-icon">📖</span><div><p class="mat-title" data-i18n="mat2">維摩詰經解經班</p><p class="mat-meta" data-i18n="mat2-meta">閱讀材料｜會次記錄</p><p class="ext-note">↗ 百度網盤（境內外可用）・提取碼 1111</p></div>
     </a>
-    <a href="https://pan.baidu.com/s/5sbYXQ9THKGDTMfIGf2i6Ww" target="_blank" class="mat-card">
+    <a href="https://pan.baidu.com/s/5sbYXQ9THKGDTMfIGf2i6Ww" target="_blank" rel="noopener noreferrer" class="mat-card">
       <span class="mat-icon">📝</span><div><p class="mat-title" data-i18n="mat3">讀書會短文合集</p><p class="mat-meta" data-i18n="mat3-meta">歷期生成短文｜PDF格式</p><p class="ext-note">↗ 百度網盤（境內外可用）</p></div>
     </a>
-    <a href="https://pan.baidu.com/s/5sbYXQ9THKGDTMfIGf2i6Ww" target="_blank" class="mat-card">
+    <a href="https://pan.baidu.com/s/5sbYXQ9THKGDTMfIGf2i6Ww" target="_blank" rel="noopener noreferrer" class="mat-card">
       <span class="mat-icon">📚</span><div><p class="mat-title" data-i18n="mat4">推薦書單</p><p class="mat-meta" data-i18n="mat4-meta">印度佛教史・般若思想・佛教發展史</p><p class="ext-note">↗ 百度網盤（境內外可用）</p></div>
     </a>
   </div>
@@ -372,13 +265,13 @@ section:nth-child(3){animation-delay:.18s}section:nth-child(4){animation-delay:.
         <span class="expand-arrow" id="bili-arrow">▼</span>
       </div>
       <div class="hist-sub" id="bili-sub" style="display:none">
-        <a href="https://search.bilibili.com/all?keyword=宽谦法师+印度佛教思想史" target="_blank" class="hist-item">📺 印度佛教思想史（宽谦法師）</a>
-        <a href="https://www.bilibili.com/video/BV1zFm7BAEN5/" target="_blank" class="hist-item">📺 中国佛教史（复旦公开课）</a>
-        <a href="https://search.bilibili.com/all?keyword=藏传佛教简史+佛教的兴起" target="_blank" class="hist-item">📺 藏传佛教简史</a>
-        <a href="https://search.bilibili.com/all?keyword=蘭爸爸说故事+日本佛教史" target="_blank" class="hist-item">📺 日本佛教史（蘭爸爸说故事）</a>
+        <a href="https://search.bilibili.com/all?keyword=宽谦法师+印度佛教思想史" target="_blank" rel="noopener noreferrer" class="hist-item">📺 印度佛教思想史（宽谦法師）</a>
+        <a href="https://www.bilibili.com/video/BV1zFm7BAEN5/" target="_blank" rel="noopener noreferrer" class="hist-item">📺 中国佛教史（复旦公开课）</a>
+        <a href="https://search.bilibili.com/all?keyword=藏传佛教简史+佛教的兴起" target="_blank" rel="noopener noreferrer" class="hist-item">📺 藏传佛教简史</a>
+        <a href="https://search.bilibili.com/all?keyword=蘭爸爸说故事+日本佛教史" target="_blank" rel="noopener noreferrer" class="hist-item">📺 日本佛教史（蘭爸爸说故事）</a>
       </div>
     </div>
-    <a href="https://cbetaonline.dila.edu.tw" target="_blank" class="res-card">
+    <a href="https://cbetaonline.dila.edu.tw" target="_blank" rel="noopener noreferrer" class="res-card">
       <div class="res-icon">藏</div><div><p class="res-name" data-i18n="res2">CBETA 漢文佛典</p><p class="res-desc" data-i18n="res2-desc">中華電子佛典協會線上查經</p><span class="ext-tag">↗ cbetaonline.dila.edu.tw</span></div>
     </a>
     <div class="res-card-expand" id="art-card">
@@ -401,10 +294,10 @@ section:nth-child(3){animation-delay:.18s}section:nth-child(4){animation-delay:.
         <span class="expand-arrow" id="hist-arrow">▼</span>
       </div>
       <div class="hist-sub" id="hist-sub" style="display:none">
-        <a href="https://www.youtube.com/playlist?list=PLf0HGAARBa2Cb8q27OK5hbW5ibd6XYtMI" target="_blank" class="hist-item">📖 印度佛教史</a>
-        <a href="https://youtube.com/playlist?list=PL5Q-zzXiZf9RJgxWrGAovDaG71EpuCJpM" target="_blank" class="hist-item">📖 中國佛教史</a>
-        <a href="https://youtu.be/zxLI4Ba4ZzA?si=b571eqp97u5RhCkY" target="_blank" class="hist-item">📖 藏傳佛教史</a>
-        <a href="https://youtu.be/8hfePOCIGug?si=JAQrQZy-9svgILrx" target="_blank" class="hist-item">📖 日本佛教史</a>
+        <a href="https://www.youtube.com/playlist?list=PLf0HGAARBa2Cb8q27OK5hbW5ibd6XYtMI" target="_blank" rel="noopener noreferrer" class="hist-item">📖 印度佛教史</a>
+        <a href="https://youtube.com/playlist?list=PL5Q-zzXiZf9RJgxWrGAovDaG71EpuCJpM" target="_blank" rel="noopener noreferrer" class="hist-item">📖 中國佛教史</a>
+        <a href="https://youtu.be/zxLI4Ba4ZzA?si=b571eqp97u5RhCkY" target="_blank" rel="noopener noreferrer" class="hist-item">📖 藏傳佛教史</a>
+        <a href="https://youtu.be/8hfePOCIGug?si=JAQrQZy-9svgILrx" target="_blank" rel="noopener noreferrer" class="hist-item">📖 日本佛教史</a>
         
       </div>
     </div>
@@ -424,7 +317,7 @@ section:nth-child(3){animation-delay:.18s}section:nth-child(4){animation-delay:.
 
       <!-- Bio text -->
       <div>
-        <h3 style="font-family:'Noto Serif TC',serif;font-size:18px;color:var(--ink);margin-bottom:4px">姜登雲 TY Chiang</h3>
+        <h3 style="font-family:var(--serif);font-size:18px;color:var(--ink);margin-bottom:4px">姜登雲 TY Chiang</h3>
         <p style="font-size:11px;color:var(--gold);letter-spacing:.15em;margin-bottom:20px">佛學研究生・領導力教練・組織文化顧問</p>
         <div style="font-size:13px;line-height:1.9;color:var(--ink-light)">
           <p style="margin-bottom:14px">從安全帽工地到禪堂案桌，我的生命是一場持續的轉化旅程。</p>
@@ -452,7 +345,7 @@ section:nth-child(3){animation-delay:.18s}section:nth-child(4){animation-delay:.
         <!-- Baidu Pan for China users -->
         <div style="margin-top:12px;padding:10px 14px;background:var(--paper);border:1px solid rgba(26,18,9,.08);border-radius:3px;display:flex;align-items:center;justify-content:space-between">
           <span style="font-size:11px;color:var(--ink-light)">🇨🇳 境內用戶｜百度網盤觀看</span>
-          <a href="https://pan.baidu.com/s/1tFKxLURKsga29KhQtalPgg" target="_blank"
+          <a href="https://pan.baidu.com/s/1tFKxLURKsga29KhQtalPgg" target="_blank" rel="noopener noreferrer"
              style="font-size:10px;color:var(--gold);letter-spacing:.1em;text-decoration:none;border:1px solid var(--gold);padding:3px 10px">
             提取碼 tyeg →
           </a>
@@ -491,89 +384,13 @@ section:nth-child(3){animation-delay:.18s}section:nth-child(4){animation-delay:.
   </div>
 </div>
 
-<!-- 報名 Modal -->
-<div class="modal-wrap" id="signupModal" onclick="if(event.target===this)this.classList.remove('open')">
-  <div class="modal">
-    <h3 class="m-title" data-i18n="signup-title">金剛經讀書會報名</h3>
-    <p class="m-sub" data-i18n="signup-desc">歡迎報名登記！讀書會開辦前將通過微信通知您具體安排。線上形式進行，境內外均可參加。</p>
-    <div class="mfg"><label data-i18n="signup-name">您的稱呼</label><input type="text" placeholder="大名或稱呼"></div>
-    <div class="mfg"><label data-i18n="signup-wechat">聯繫方式</label><input type="text" placeholder="微信 / Line / 電郵"></div>
-    <div class="mfg"><label data-i18n="signup-location">所在地區</label><input type="text" placeholder="例：上海、台北……"></div>
-    <div class="mfg"><label data-i18n="signup-bg">學習背景（選填）</label><textarea placeholder="是否有佛學基礎？對哪個方向有興趣？"></textarea></div>
-    <div class="m-acts">
-      <button class="btn-sub" onclick="alert('感恩報名！讀書會開辦前將通過微信與您聯繫。🙏');document.getElementById('signupModal').classList.remove('open')" data-i18n="signup-submit">提交報名</button>
-      <button class="btn-can" onclick="document.getElementById('signupModal').classList.remove('open')" data-i18n="cancel">取消</button>
-    </div>
-  </div>
-</div>
-
-<!-- 密碼驗證 -->
-<div class="pw-gate" id="pwGate">
-  <div class="pw-box">
-    <h4>⚙ 管理模式</h4>
-    <p data-i18n="pw-desc">請輸入管理密碼</p>
-    <input class="pw-input" type="password" id="pw-input" placeholder="••••" maxlength="20" onkeydown="if(event.key==='Enter')checkPw()">
-    <p class="pw-err" id="pw-err"></p>
-    <button class="pw-btn" onclick="checkPw()" data-i18n="pw-enter">確認進入</button>
-    <button class="pw-cancel" onclick="closePwGate()" data-i18n="cancel">取消</button>
-  </div>
-</div>
-
-<!-- 管理模式 -->
-<div class="admin-panel" id="adminPanel">
-  <div class="admin-box">
-    <button class="btn-x" onclick="closeAdmin()">✕</button>
-    <h3 class="admin-title">⚙ 管理模式</h3>
-    <p class="admin-sub">每次微信文章/視頻發表後，在這裡貼入標題和連結，網頁自動更新。<br>數據保存在本機瀏覽器，下次開啟仍有效。</p>
-    <div class="atabs">
-      <button class="atab active" onclick="switchTab('article',this)">➕ 新增文章</button>
-      <button class="atab" onclick="switchTab('video',this)">➕ 新增視頻</button>
-      <button class="atab" onclick="switchTab('manage',this)">📋 管理內容</button>
-    </div>
-    <div class="aform active" id="form-article">
-      <div class="fg"><label>文章標題</label><input type="text" id="a-title" placeholder="從公眾號複製標題"></div>
-      <div class="fg-row">
-        <div class="fg"><label>日期</label><input type="text" id="a-date" placeholder="例：02月25日"></div>
-        <div class="fg"><label>分類標籤</label>
-          <select id="a-tag"><option>部派佛教</option><option>佛教發展史</option><option>佛教史</option><option>般若思想</option><option>佛教宇宙論</option><option>禪宗</option><option>其他</option></select>
-        </div>
-      </div>
-      <div class="fg"><label>公眾號文章連結（發表後複製分享連結）</label><input type="text" id="a-url" placeholder="https://mp.weixin.qq.com/s/..."></div>
-      <div class="fg"><label>狀態</label>
-        <select id="a-status"><option value="published">已發表（有連結）</option><option value="upcoming">預約發表中（暫無連結）</option></select>
-      </div>
-      <button class="btn-add" onclick="addArticle()">確認新增文章</button>
-      <div class="alog" id="a-log">等待新增…</div>
-    </div>
-    <div class="aform" id="form-video">
-      <div class="fg"><label>視頻標題</label><input type="text" id="v-title" placeholder="從視頻號複製標題"></div>
-      <div class="fg-row">
-        <div class="fg"><label>日期</label><input type="text" id="v-date" placeholder="例：03月07日"></div>
-        <div class="fg"><label>播放量</label><input type="text" id="v-views" placeholder="例：533"></div>
-      </div>
-      <div class="fg"><label>視頻號連結（供識別用，實際點擊會引導掃碼）</label><input type="text" id="v-url" placeholder="https://weixin.qq.com/sph/..."></div>
-      <div class="fg"><label>狀態</label>
-        <select id="v-status"><option value="published">已發表</option><option value="upcoming">預約發表中</option></select>
-      </div>
-      <button class="btn-add" onclick="addVideo()">確認新增視頻</button>
-      <div class="alog" id="v-log">等待新增…</div>
-    </div>
-    <div class="aform" id="form-manage">
-      <p style="font-size:11px;color:rgba(26,18,9,.5);font-family:'Noto Sans TC',sans-serif;margin-bottom:12px;line-height:1.8">手動新增的內容：</p>
-      <div id="manage-list" style="font-size:11px;font-family:'Noto Sans TC',sans-serif;color:rgba(26,18,9,.6);line-height:2.2"></div>
-      <button class="btn-add" style="background:var(--rust);margin-top:12px" onclick="clearAll()">⚠ 清除全部自定義內容</button>
-    </div>
-    <p class="anote">💡 <strong>流程</strong>：文章/視頻發表當天 → 點右上角⚙ → 輸入密碼 → 填入標題+連結 → 確認新增 → 完成！<br><br>⚠️ 視頻號連結填入後，網頁上點擊視頻會彈出「掃碼觀看」提示，這是微信的限制無法繞過。</p>
-  </div>
-</div>
-
 <script>
 // ===== I18N =====
 const LANGS = {
-  'zh-TW':{eyebrow:'佛學讀書會平台',tagline:'以文字探問，以讀書會共修','stat-articles':'原創文章','stat-videos':'短視頻','stat-clubs':'讀書會','stat-followers':'關注者','nav-clubs':'讀書會','nav-articles':'原創文章','nav-videos':'短視頻','nav-materials':'學習材料','nav-resources':'推薦資源','nav-about':'關於','sec-clubs':'讀書會','clubs-count':'2 個讀書會','club-active':'進行中','club1-name':'印度佛教史讀書會','club1-tag':'第二輪進行中','club1-desc':'2026 年 7 月起進入第二輪，雙週線上共讀平川彰《印度佛教史》，成員輪流領讀。系統梳理從原始佛教到大乘興起的歷史脈絡，探討部派分裂與佛陀觀的演變。',online:'線上進行中','download-materials':'下載本期材料 →','club-upcoming':'即將開辦','club2-name':'維摩詰經解經班','club2-desc':'2026 年 9 月 9 日開辦，雙週一次線上共讀。以鳩摩羅什譯本為底，演培法師《講記》為主要參考；成員認領品目、逐段解經，會後整理白話說明。','club2-note':'📅 雙週一次｜線上形式｜境內外皆可參加',signup:'報名方式：微信視頻號「金仙羊豆」留言即可','signup-qr-note':'掃碼關注視頻號 · 留言報名','vid-series':'🎬 系列：漢傳佛教史（已更新至第 20 集）｜唯識 31 天｜印度佛教史','sec-about':'關於主理人','sec-articles':'原創文章','view-all-articles':'前往微信公眾號查看全部文章 →','sec-videos':'短視頻','video-note':'💡 視頻號連結只能在微信App內打開。請在手機微信搜尋「金仙羊豆」或掃描下方二維碼，直接在視頻號觀看。','sec-materials':'學習材料下載','materials-sub':'百度網盤',mat1:'印度佛教史讀書會','mat1-meta':'閱讀材料｜討論問題｜會後短文',mat2:'維摩詰經解經班','mat2-meta':'閱讀材料｜會次記錄',mat3:'讀書會短文合集','mat3-meta':'歷期生成短文｜PDF格式',mat4:'推薦書單','mat4-meta':'印度佛教史・般若思想・佛教發展史','sec-resources':'推薦學習資源','resources-sub':'精選外部連結',res1:'B站｜佛學精選視頻','res1-desc':'優質佛學課程與講座合集',res2:'CBETA 漢文佛典','res2-desc':'中華電子佛典協會線上查經',res3:'佛教藝術','res3-desc':'佛像・寺院・石窟石刻・梵文古跡',res4:'佛教發展史學習資源','res4-desc':'印度・中國・藏傳・日本佛教史','qr-official':'微信公眾號','qr-video':'視頻號','footer-desc':'以文字探問佛法，以讀書會共修學習','footer-vid-id':'視頻號ID：sphmcM0Azle92QX','footer-clubs':'印度佛教史讀書會 ｜ 維摩詰經解經班','wc-title':'在微信中觀看','wc-desc':'視頻號只能在微信App內觀看。\n請掃描二維碼關注「金仙羊豆」視頻號，或在微信搜尋「金仙羊豆」。','wc-close':'關閉','signup-title':'金剛經讀書會報名','signup-desc':'歡迎報名登記！讀書會開辦前將通過微信通知您具體安排。線上形式進行，境內外均可參加。','signup-name':'您的稱呼','signup-wechat':'聯繫方式','signup-location':'所在地區','signup-bg':'學習背景（選填）','signup-submit':'提交報名',cancel:'取消','pw-desc':'請輸入管理密碼','pw-enter':'確認進入','badge-upcoming':'即將發表'},
-  'zh-CN':{eyebrow:'佛学读书会平台',tagline:'以文字探问，以读书会共修','stat-articles':'原创文章','stat-videos':'短视频','stat-clubs':'读书会','stat-followers':'关注者','nav-clubs':'读书会','nav-articles':'原创文章','nav-videos':'短视频','nav-materials':'学习材料','nav-resources':'推荐资源','nav-about':'关于','sec-clubs':'读书会','clubs-count':'2 个读书会','club-active':'进行中','club1-name':'印度佛教史读书会','club1-tag':'第二轮进行中','club1-desc':'2026 年 7 月起进入第二轮，双周线上共读平川彰《印度佛教史》，成员轮流领读。系统梳理从原始佛教到大乘兴起的历史脉络，探讨部派分裂与佛陀观的演变。',online:'线上进行中','download-materials':'下载本期材料 →','club-upcoming':'即将开办','club2-name':'维摩诘经解经班','club2-desc':'2026 年 9 月 9 日开办，双周一次线上共读。以鸠摩罗什译本为底，演培法师《讲记》为主要参考；成员认领品目、逐段解经，会后整理白话说明。','club2-note':'📅 双周一次｜线上形式｜境内外皆可参加',signup:'报名方式：微信视频号「金仙羊豆」留言即可','signup-qr-note':'扫码关注视频号 · 留言报名','vid-series':'🎬 系列：汉传佛教史（已更新至第 20 集）｜唯识 31 天｜印度佛教史','sec-about':'关于主理人','sec-articles':'原创文章','view-all-articles':'前往微信公众号查看全部文章 →','sec-videos':'短视频','video-note':'💡 视频号链接只能在微信App内打开。请在手机微信搜索「金仙羊豆」或扫描下方二维码，直接在视频号观看。','sec-materials':'学习材料下载','materials-sub':'百度网盘',mat1:'印度佛教史读书会','mat1-meta':'阅读材料｜讨论问题｜会后短文',mat2:'维摩诘经解经班','mat2-meta':'阅读材料｜会次记录',mat3:'读书会短文合集','mat3-meta':'历期生成短文｜PDF格式',mat4:'推荐书单','mat4-meta':'印度佛教史・般若思想・佛教发展史','sec-resources':'推荐学习资源','resources-sub':'精选外部链接',res1:'B站｜佛学精选视频','res1-desc':'优质佛学课程与讲座合集',res2:'CBETA 汉文佛典','res2-desc':'中华电子佛典协会线上查经',res3:'佛教艺术','res3-desc':'佛像・寺院・石窟石刻・梵文古跡',res4:'佛教发展史学习资源','res4-desc':'印度・中国・藏传・日本佛教史','qr-official':'微信公众号','qr-video':'视频号','footer-desc':'以文字探问佛法，以读书会共修学习','footer-vid-id':'视频号ID：sphmcM0Azle92QX','footer-clubs':'印度佛教史读书会 ｜ 维摩诘经解经班','wc-title':'在微信中观看','wc-desc':'视频号只能在微信App内观看。\n请扫描二维码关注「金仙羊豆」视频号，或在微信搜索「金仙羊豆」。','wc-close':'关闭','signup-title':'金刚经读书会报名','signup-desc':'欢迎报名登记！读书会开办前将通过微信通知您具体安排。线上形式进行，境内外均可参加。','signup-name':'您的称呼','signup-wechat':'联系方式','signup-location':'所在地区','signup-bg':'学习背景（选填）','signup-submit':'提交报名',cancel:'取消','pw-desc':'请输入管理密码','pw-enter':'确认进入','badge-upcoming':'即将发表'},
-  ja:{eyebrow:'仏教読書会プラットフォーム',tagline:'文字で探究し、読書会で共修する','stat-articles':'オリジナル記事','stat-videos':'動画','stat-clubs':'読書会','stat-followers':'フォロワー','nav-clubs':'読書会','nav-articles':'記事','nav-videos':'動画','nav-materials':'学習資料','nav-resources':'おすすめ','nav-about':'について','sec-clubs':'読書会','clubs-count':'2つの読書会','club-active':'開催中','club1-name':'インド仏教史読書会','club1-tag':'第2期開催中','club1-desc':'2026年7月より第2期。隔週オンラインで平川彰『インド仏教史』を輪読し、メンバーが交代で導読を担当。原始仏教から大乗成立までの歴史的脈絡を体系的に整理します。',online:'オンライン開催中','download-materials':'今期の資料をダウンロード →','club-upcoming':'近日開催','club2-name':'維摩経 解経クラス','club2-desc':'2026年9月9日開講、隔週オンライン。鳩摩羅什訳を底本とし、演培法師『講記』を主要参考書として、メンバーが章を分担し逐段解読、会後に現代語による説明をまとめます。','club2-note':'📅 隔週開催｜オンライン形式｜国内外参加可',signup:'参加申込：WeChat動画チャンネル「金仙羊豆」へメッセージ','signup-qr-note':'QRコードで動画チャンネルをフォローし、メッセージで申込','vid-series':'🎬 シリーズ：漢伝仏教史（第20話まで公開）｜唯識31日｜インド仏教史','sec-about':'ホストについて','sec-articles':'オリジナル記事','view-all-articles':'WeChat公式アカウントで全記事を見る →','sec-videos':'動画','video-note':'💡 動画はWeChatアプリ内でのみ視聴可能です。WeChatで「金仙羊豆」を検索するか、QRコードをスキャンしてください。','sec-materials':'学習資料ダウンロード','materials-sub':'百度网盘',mat1:'インド仏教史読書会','mat1-meta':'読書資料｜討論テーマ｜読後レポート',mat2:'維摩経 解経クラス','mat2-meta':'読書資料｜各回記録',mat3:'読書会レポート集','mat3-meta':'各期生成レポート｜PDF形式',mat4:'推薦図書リスト','mat4-meta':'インド仏教史・般若思想・アビダルマ','sec-resources':'おすすめ学習リソース','resources-sub':'厳選外部リンク',res1:'Bilibili｜仏教動画精選','res1-desc':'優良な仏教講座・講義集',res2:'CBETA 漢文仏典','res2-desc':'中華電子仏典協会オンライン検索',res3:'佛教藝術','res3-desc':'読書会テーマ関連の開示',res4:'アビダルマ学習リソース','res4-desc':'部派仏教・論蔵関連コース','qr-official':'WeChat公式','qr-video':'動画チャンネル','footer-desc':'文字で仏法を探究し、読書会で共に学ぶ','footer-vid-id':'動画チャンネルID：sphmcM0Azle92QX','footer-clubs':'インド仏教史読書会 ｜ 維摩経 解経クラス','wc-title':'WeChatで視聴','wc-desc':'動画チャンネルはWeChatアプリ内でのみ視聴可能です。\nQRコードをスキャンして「金仙羊豆」をフォローしてください。','wc-close':'閉じる','signup-title':'金剛経読書会 参加登録','signup-desc':'ご登録ありがとうございます！開催前にWeChatでご連絡いたします。','signup-name':'お名前','signup-wechat':'Contact (WeChat/Line/Email)','signup-location':'お住まいの地域','signup-bg':'学習背景（任意）','signup-submit':'登録する',cancel:'キャンセル','pw-desc':'管理者パスワードを入力','pw-enter':'ログイン','badge-upcoming':'公開予定'},
-  en:{eyebrow:'Buddhist Study Platform',tagline:'Explore through words, cultivate through reading','stat-articles':'Articles','stat-videos':'Videos','stat-clubs':'Study Clubs','stat-followers':'Followers','nav-clubs':'Clubs','nav-articles':'Articles','nav-videos':'Videos','nav-materials':'Materials','nav-resources':'Resources','nav-about':'About','sec-clubs':'Reading Clubs','clubs-count':'2 Clubs','club-active':'Active','club1-name':'History of Indian Buddhism','club1-tag':'Round 2 in Progress','club1-desc':'Round 2 since July 2026: a biweekly online reading of Hirakawa Akira\'s History of Indian Buddhism, with members taking turns to lead. A systematic survey from early Buddhism to the rise of Mahayana, covering sectarian divisions and evolving views of the Buddha.',online:'Online Session','download-materials':'Download This Session →','club-upcoming':'Coming Soon','club2-name':'Vimalakirti Sutra Study Class','club2-desc':'Launched 9 Sept 2026, biweekly online. Based on Kumarajiva\'s translation with Ven. Yanpei\'s commentary as the main reference; members claim chapters, read passage by passage, and compile plain-language notes after each session.','club2-note':'📅 Biweekly｜Online｜Open to all regions',signup:'To join: leave a message on the WeChat Video Channel "金仙羊豆"','signup-qr-note':'Scan to follow the Video Channel, then message to register','vid-series':'🎬 Series: Chinese Buddhist History (20 episodes)｜Yogacara in 31 Days｜Indian Buddhist History','sec-about':'About the Host','sec-articles':'Original Articles','view-all-articles':'View all articles on WeChat →','sec-videos':'Short Videos','video-note':'💡 Video Channel links can only be opened within the WeChat app. Search "金仙羊豆" on WeChat or scan the QR code below.','sec-materials':'Study Materials','materials-sub':'Baidu Netdisk',mat1:'Indian Buddhism History Club','mat1-meta':'Reading Materials｜Discussion Questions｜Session Essays',mat2:'Vimalakirti Sutra Study Class','mat2-meta':'Reading materials｜Session records',mat3:'Essay Collection','mat3-meta':'Session essays in PDF format',mat4:'Recommended Reading List','mat4-meta':'Indian Buddhism · Prajnaparamita · Abhidharma','sec-resources':'Recommended Resources','resources-sub':'Curated External Links',res1:'Bilibili｜Buddhist Videos','res1-desc':'Quality lectures and courses on Buddhism',res2:'CBETA Chinese Buddhist Canon','res2-desc':'Online Tripitaka database (Chinese)',res3:'Dharma Talks','res3-desc':'Talks related to our reading topics',res4:'Abhidharma Resources','res4-desc':'Courses on Abhidharma & sectarian Buddhism','qr-official':'WeChat Official','qr-video':'Video Channel','footer-desc':'Exploring Dharma through words, cultivating wisdom through reading','footer-vid-id':'Video Channel ID: sphmcM0Azle92QX','footer-clubs':'Indian Buddhism History Club｜Vimalakirti Sutra Study Class','wc-title':'Watch on WeChat','wc-desc':'Video Channel is only accessible within WeChat.\nScan the QR code or search "金仙羊豆" on WeChat.','wc-close':'Close','signup-title':'Diamond Sutra Club Registration','signup-desc':'Thank you for your interest! We will contact you via WeChat before the club begins.','signup-name':'Your Name','signup-wechat':'Contact (WeChat/Line/Email)','signup-location':'Location','signup-bg':'Background (optional)','signup-submit':'Submit',cancel:'Cancel','pw-desc':'Enter admin password','pw-enter':'Enter','badge-upcoming':'Coming Soon'}
+  'zh-TW':{eyebrow:'佛學讀書會平台',tagline:'以文字探問，以讀書會共修','stat-articles':'原創文章','stat-videos':'短視頻','stat-clubs':'讀書會','stat-followers':'關注者','nav-clubs':'讀書會','nav-articles':'原創文章','nav-videos':'短視頻','nav-materials':'學習材料','nav-resources':'推薦資源','nav-about':'關於','sec-clubs':'讀書會','clubs-count':'2 個讀書會','club-active':'進行中','club1-name':'印度佛教史讀書會','club1-tag':'第二輪進行中','club1-desc':'2026 年 7 月起進入第二輪，雙週線上共讀平川彰《印度佛教史》，成員輪流領讀。系統梳理從原始佛教到大乘興起的歷史脈絡，探討部派分裂與佛陀觀的演變。',online:'線上進行中','download-materials':'下載本期材料 →','club-upcoming':'即將開辦','club2-name':'維摩詰經解經班','club2-desc':'2026 年 9 月 9 日開辦，雙週一次線上共讀。以鳩摩羅什譯本為底，演培法師《講記》為主要參考；成員認領品目、逐段解經，會後整理白話說明。','club2-note':'📅 雙週一次｜線上形式｜境內外皆可參加',signup:'報名方式：微信視頻號「金仙羊豆」留言即可','signup-qr-note':'掃碼關注視頻號 · 留言報名','vid-series':'🎬 系列：漢傳佛教史（已更新至第 20 集）｜唯識 31 天｜印度佛教史','sec-about':'關於主理人','sec-articles':'原創文章','view-all-articles':'前往微信公眾號查看全部文章 →','sec-videos':'短視頻','video-note':'💡 視頻號連結只能在微信App內打開。請在手機微信搜尋「金仙羊豆」或掃描下方二維碼，直接在視頻號觀看。','sec-materials':'學習材料下載','materials-sub':'百度網盤',mat1:'印度佛教史讀書會','mat1-meta':'閱讀材料｜討論問題｜會後短文',mat2:'維摩詰經解經班','mat2-meta':'閱讀材料｜會次記錄',mat3:'讀書會短文合集','mat3-meta':'歷期生成短文｜PDF格式',mat4:'推薦書單','mat4-meta':'印度佛教史・般若思想・佛教發展史','sec-resources':'推薦學習資源','resources-sub':'精選外部連結',res1:'B站｜佛學精選視頻','res1-desc':'優質佛學課程與講座合集',res2:'CBETA 漢文佛典','res2-desc':'中華電子佛典協會線上查經',res3:'佛教藝術','res3-desc':'佛像・寺院・石窟石刻・梵文古跡',res4:'佛教發展史學習資源','res4-desc':'印度・中國・藏傳・日本佛教史','qr-official':'微信公眾號','qr-video':'視頻號','footer-desc':'以文字探問佛法，以讀書會共修學習','footer-vid-id':'視頻號ID：sphmcM0Azle92QX','footer-clubs':'印度佛教史讀書會 ｜ 維摩詰經解經班','wc-title':'在微信中觀看','wc-desc':'視頻號只能在微信App內觀看。\n請掃描二維碼關注「金仙羊豆」視頻號，或在微信搜尋「金仙羊豆」。','wc-close':'關閉','badge-upcoming':'即將發表'},
+  'zh-CN':{eyebrow:'佛学读书会平台',tagline:'以文字探问，以读书会共修','stat-articles':'原创文章','stat-videos':'短视频','stat-clubs':'读书会','stat-followers':'关注者','nav-clubs':'读书会','nav-articles':'原创文章','nav-videos':'短视频','nav-materials':'学习材料','nav-resources':'推荐资源','nav-about':'关于','sec-clubs':'读书会','clubs-count':'2 个读书会','club-active':'进行中','club1-name':'印度佛教史读书会','club1-tag':'第二轮进行中','club1-desc':'2026 年 7 月起进入第二轮，双周线上共读平川彰《印度佛教史》，成员轮流领读。系统梳理从原始佛教到大乘兴起的历史脉络，探讨部派分裂与佛陀观的演变。',online:'线上进行中','download-materials':'下载本期材料 →','club-upcoming':'即将开办','club2-name':'维摩诘经解经班','club2-desc':'2026 年 9 月 9 日开办，双周一次线上共读。以鸠摩罗什译本为底，演培法师《讲记》为主要参考；成员认领品目、逐段解经，会后整理白话说明。','club2-note':'📅 双周一次｜线上形式｜境内外皆可参加',signup:'报名方式：微信视频号「金仙羊豆」留言即可','signup-qr-note':'扫码关注视频号 · 留言报名','vid-series':'🎬 系列：汉传佛教史（已更新至第 20 集）｜唯识 31 天｜印度佛教史','sec-about':'关于主理人','sec-articles':'原创文章','view-all-articles':'前往微信公众号查看全部文章 →','sec-videos':'短视频','video-note':'💡 视频号链接只能在微信App内打开。请在手机微信搜索「金仙羊豆」或扫描下方二维码，直接在视频号观看。','sec-materials':'学习材料下载','materials-sub':'百度网盘',mat1:'印度佛教史读书会','mat1-meta':'阅读材料｜讨论问题｜会后短文',mat2:'维摩诘经解经班','mat2-meta':'阅读材料｜会次记录',mat3:'读书会短文合集','mat3-meta':'历期生成短文｜PDF格式',mat4:'推荐书单','mat4-meta':'印度佛教史・般若思想・佛教发展史','sec-resources':'推荐学习资源','resources-sub':'精选外部链接',res1:'B站｜佛学精选视频','res1-desc':'优质佛学课程与讲座合集',res2:'CBETA 汉文佛典','res2-desc':'中华电子佛典协会线上查经',res3:'佛教艺术','res3-desc':'佛像・寺院・石窟石刻・梵文古跡',res4:'佛教发展史学习资源','res4-desc':'印度・中国・藏传・日本佛教史','qr-official':'微信公众号','qr-video':'视频号','footer-desc':'以文字探问佛法，以读书会共修学习','footer-vid-id':'视频号ID：sphmcM0Azle92QX','footer-clubs':'印度佛教史读书会 ｜ 维摩诘经解经班','wc-title':'在微信中观看','wc-desc':'视频号只能在微信App内观看。\n请扫描二维码关注「金仙羊豆」视频号，或在微信搜索「金仙羊豆」。','wc-close':'关闭','badge-upcoming':'即将发表'},
+  ja:{eyebrow:'仏教読書会プラットフォーム',tagline:'文字で探究し、読書会で共修する','stat-articles':'オリジナル記事','stat-videos':'動画','stat-clubs':'読書会','stat-followers':'フォロワー','nav-clubs':'読書会','nav-articles':'記事','nav-videos':'動画','nav-materials':'学習資料','nav-resources':'おすすめ','nav-about':'について','sec-clubs':'読書会','clubs-count':'2つの読書会','club-active':'開催中','club1-name':'インド仏教史読書会','club1-tag':'第2期開催中','club1-desc':'2026年7月より第2期。隔週オンラインで平川彰『インド仏教史』を輪読し、メンバーが交代で導読を担当。原始仏教から大乗成立までの歴史的脈絡を体系的に整理します。',online:'オンライン開催中','download-materials':'今期の資料をダウンロード →','club-upcoming':'近日開催','club2-name':'維摩経 解経クラス','club2-desc':'2026年9月9日開講、隔週オンライン。鳩摩羅什訳を底本とし、演培法師『講記』を主要参考書として、メンバーが章を分担し逐段解読、会後に現代語による説明をまとめます。','club2-note':'📅 隔週開催｜オンライン形式｜国内外参加可',signup:'参加申込：WeChat動画チャンネル「金仙羊豆」へメッセージ','signup-qr-note':'QRコードで動画チャンネルをフォローし、メッセージで申込','vid-series':'🎬 シリーズ：漢伝仏教史（第20話まで公開）｜唯識31日｜インド仏教史','sec-about':'ホストについて','sec-articles':'オリジナル記事','view-all-articles':'WeChat公式アカウントで全記事を見る →','sec-videos':'動画','video-note':'💡 動画はWeChatアプリ内でのみ視聴可能です。WeChatで「金仙羊豆」を検索するか、QRコードをスキャンしてください。','sec-materials':'学習資料ダウンロード','materials-sub':'百度网盘',mat1:'インド仏教史読書会','mat1-meta':'読書資料｜討論テーマ｜読後レポート',mat2:'維摩経 解経クラス','mat2-meta':'読書資料｜各回記録',mat3:'読書会レポート集','mat3-meta':'各期生成レポート｜PDF形式',mat4:'推薦図書リスト','mat4-meta':'インド仏教史・般若思想・アビダルマ','sec-resources':'おすすめ学習リソース','resources-sub':'厳選外部リンク',res1:'Bilibili｜仏教動画精選','res1-desc':'優良な仏教講座・講義集',res2:'CBETA 漢文仏典','res2-desc':'中華電子仏典協会オンライン検索',res3:'佛教藝術','res3-desc':'読書会テーマ関連の開示',res4:'アビダルマ学習リソース','res4-desc':'部派仏教・論蔵関連コース','qr-official':'WeChat公式','qr-video':'動画チャンネル','footer-desc':'文字で仏法を探究し、読書会で共に学ぶ','footer-vid-id':'動画チャンネルID：sphmcM0Azle92QX','footer-clubs':'インド仏教史読書会 ｜ 維摩経 解経クラス','wc-title':'WeChatで視聴','wc-desc':'動画チャンネルはWeChatアプリ内でのみ視聴可能です。\nQRコードをスキャンして「金仙羊豆」をフォローしてください。','wc-close':'閉じる','badge-upcoming':'公開予定'},
+  en:{eyebrow:'Buddhist Study Platform',tagline:'Explore through words, cultivate through reading','stat-articles':'Articles','stat-videos':'Videos','stat-clubs':'Study Clubs','stat-followers':'Followers','nav-clubs':'Clubs','nav-articles':'Articles','nav-videos':'Videos','nav-materials':'Materials','nav-resources':'Resources','nav-about':'About','sec-clubs':'Reading Clubs','clubs-count':'2 Clubs','club-active':'Active','club1-name':'History of Indian Buddhism','club1-tag':'Round 2 in Progress','club1-desc':'Round 2 since July 2026: a biweekly online reading of Hirakawa Akira\'s History of Indian Buddhism, with members taking turns to lead. A systematic survey from early Buddhism to the rise of Mahayana, covering sectarian divisions and evolving views of the Buddha.',online:'Online Session','download-materials':'Download This Session →','club-upcoming':'Coming Soon','club2-name':'Vimalakirti Sutra Study Class','club2-desc':'Launched 9 Sept 2026, biweekly online. Based on Kumarajiva\'s translation with Ven. Yanpei\'s commentary as the main reference; members claim chapters, read passage by passage, and compile plain-language notes after each session.','club2-note':'📅 Biweekly｜Online｜Open to all regions',signup:'To join: leave a message on the WeChat Video Channel "金仙羊豆"','signup-qr-note':'Scan to follow the Video Channel, then message to register','vid-series':'🎬 Series: Chinese Buddhist History (20 episodes)｜Yogacara in 31 Days｜Indian Buddhist History','sec-about':'About the Host','sec-articles':'Original Articles','view-all-articles':'View all articles on WeChat →','sec-videos':'Short Videos','video-note':'💡 Video Channel links can only be opened within the WeChat app. Search "金仙羊豆" on WeChat or scan the QR code below.','sec-materials':'Study Materials','materials-sub':'Baidu Netdisk',mat1:'Indian Buddhism History Club','mat1-meta':'Reading Materials｜Discussion Questions｜Session Essays',mat2:'Vimalakirti Sutra Study Class','mat2-meta':'Reading materials｜Session records',mat3:'Essay Collection','mat3-meta':'Session essays in PDF format',mat4:'Recommended Reading List','mat4-meta':'Indian Buddhism · Prajnaparamita · Abhidharma','sec-resources':'Recommended Resources','resources-sub':'Curated External Links',res1:'Bilibili｜Buddhist Videos','res1-desc':'Quality lectures and courses on Buddhism',res2:'CBETA Chinese Buddhist Canon','res2-desc':'Online Tripitaka database (Chinese)',res3:'Dharma Talks','res3-desc':'Talks related to our reading topics',res4:'Abhidharma Resources','res4-desc':'Courses on Abhidharma & sectarian Buddhism','qr-official':'WeChat Official','qr-video':'Video Channel','footer-desc':'Exploring Dharma through words, cultivating wisdom through reading','footer-vid-id':'Video Channel ID: sphmcM0Azle92QX','footer-clubs':'Indian Buddhism History Club｜Vimalakirti Sutra Study Class','wc-title':'Watch on WeChat','wc-desc':'Video Channel is only accessible within WeChat.\nScan the QR code or search "金仙羊豆" on WeChat.','wc-close':'Close','badge-upcoming':'Coming Soon'}
 };
 
 let curLang = 'zh-TW';
@@ -591,215 +408,22 @@ function setLang(lang, btn) {
   if(lang === 'en') document.title = 'Jin Xian Yang Dou | Buddhist Study Platform';
   else if(lang === 'ja') document.title = '金仙羊豆｜仏教読書会';
   else document.title = '金仙羊豆｜佛學讀書會';
-  renderA(); renderV();
 }
 
-// ===== DATA =====
-const DEF_ARTS = [
-  {date:'02月25日',title:'佛陀走了，队伍不好带了：一部关于分家、吵架与哲学进化的部派佛教简史',tag:'部派佛教',url:'',status:'upcoming'},
-  {date:'02月22日',title:'佛教里的「自性」到底是该杀还是该捧？从「缘起性空」到「见性成佛」的惊天逆转',tag:'般若思想',url:'',status:'upcoming'},
-  {date:'02月19日',title:'你的焦虑不是偶然，是一套精密算法：深扒「百八烦恼」的阿毘达磨底层代码',tag:'佛教發展史',url:'',status:'upcoming'},
-  {date:'02月15日',title:'【部派佛教争论】死亡与投胎之间有「空窗期」吗？——「中有」观念的演变与论争',tag:'部派佛教',url:'https://mp.weixin.qq.com/s/WBr0iYIXZ6UAF8mpdZFWDg',status:'published'},
-  {date:'02月07日',title:'【部派佛教争论】从「一代一佛」到「十方多佛」：佛陀观的空间大爆炸',tag:'部派佛教',url:'https://mp.weixin.qq.com/s/o8_wXXgJk1gGylAwLaCbqg',status:'published'},
-  {date:'02月04日',title:'佛教的「版本迭代」史：一张表看懂从佛陀圆寂到大乘兴起的权力游戏（含独家内幕）',tag:'佛教史',url:'https://mp.weixin.qq.com/s/pMvfHaXl6jv9ISVFtNZHZw',status:'published'},
-  {date:'01月31日',title:'【硬核科普】佛经已经够多了，为什么还要有「阿毘达磨」？这本「佛教百科全书」到底在讲什么？',tag:'佛教發展史',url:'https://mp.weixin.qq.com/s/8KhfakfjxXg-3JlDopY42w',status:'published'},
-  {date:'01月28日',title:'佛陀灭度后的「诸神之战」：一部关于真理定义权的争夺史（十八部脉络全解析）',tag:'佛教史',url:'https://mp.weixin.qq.com/s/6_d-n0vOOO5i44WAusHsyQ',status:'published'},
-  {date:'01月24日',title:'【佛教宇宙论】阿修罗的户籍保卫战：为什么「六道轮回」其实是少数派报告？',tag:'佛教宇宙論',url:'https://mp.weixin.qq.com/s/ztkGC7sW2k87T30Bsvr73g',status:'published'},
-  {date:'01月20日',title:'【部派佛教教理】从「心理学」到「生物学」：解读阿毘达磨的「胎生学式」十二缘起',tag:'佛教發展史',url:'https://mp.weixin.qq.com/s/zqf54AsPELBstf6ltHHSNw',status:'published'},
-  {date:'01月16日',title:'【佛教名相辨析】同名异义的陷阱：解析两套「四种缘起」',tag:'佛教發展史',url:'https://mp.weixin.qq.com/s/JYLmactesMxXMFLMaLzmGg',status:'published'},
-  {date:'01月12日',title:'【阿毘达磨因果论】不只是报应：从「五果」到「九果」的业力结算单',tag:'佛教發展史',url:'https://mp.weixin.qq.com/s/K474kLYFCrKR8-NGkJcT8w',status:'published'},
-  {date:'01月08日',title:'【阿毘达磨因果论】从「关系」到「力量」：解构有部精密运作的「六因四缘」',tag:'佛教發展史',url:'https://mp.weixin.qq.com/s/_BTiDHOhaYjx5QOweRE1vg',status:'published'},
-  {date:'01月04日',title:'【佛教宇宙论】时间的几何学：从「人寿增减」到「成住坏空」的四劫体系',tag:'佛教宇宙論',url:'https://mp.weixin.qq.com/s/ND5h1YVeb01xnU_Z94gAoA',status:'published'},
-  {date:'12月28日',title:'佛经里明明没有「十八层地狱」？揭开汉地佛教的千年误解',tag:'佛教史',url:'https://mp.weixin.qq.com/s/wP252cBFfRJ4ok1jOObhjA',status:'published'},
-  {date:'12月20日',title:'佛陀顶骨舍利——南京「佛顶宫」',tag:'其他',url:'https://mp.weixin.qq.com/s/HX9QzPOL0KiCsy5O4McB4w',status:'published'},
-  {date:'12月14日',title:'佛教学的百科全书——《大藏经》：藏传佛教',tag:'佛教史',url:'https://mp.weixin.qq.com/s/iFUsdJvRCJ_SkmHHxmxtHw',status:'published'},
-  {date:'12月08日',title:'玄奘大师为什么圆寂时，只说这两个字：「得生」',tag:'佛教史',url:'https://mp.weixin.qq.com/s/R7l4IyjLQtXeIOhwW91uAw',status:'published'},
-  {date:'11月30日',title:'禅宗巨作之《碧巌录》成书、背景探析及其影响 7/7',tag:'禪宗',url:'https://mp.weixin.qq.com/s/nkgflwJjUmaJcBkbCM8qog',status:'published'},
-  {date:'11月22日',title:'追思俗名李国深，法名今觉，法号悟彻',tag:'其他',url:'https://mp.weixin.qq.com/s/nwdweK8eYitgYeyDljzdfA',status:'published'},
-  {date:'11月18日',title:'禅宗巨作之《碧巌录》成书、背景探析及其影响 6/7',tag:'禪宗',url:'https://mp.weixin.qq.com/s/PGhNtprB5IgeUGJotvx-xg',status:'published'},
-  {date:'11月14日',title:'禅宗巨作之《碧巌录》成书、背景探析及其影响 5/7',tag:'禪宗',url:'https://mp.weixin.qq.com/s/3vR2D4N2xgX7-kLmZ4JHBw',status:'published'},
-  {date:'11月10日',title:'禅宗巨作之《碧巌录》成书、背景探析及其影响 4/7',tag:'禪宗',url:'https://mp.weixin.qq.com/s/pnJYp4FM9vRy8VAetKJR6g',status:'published'},
-  {date:'11月06日',title:'禅宗巨作之《碧巌录》成书、背景探析及其影响 3/7',tag:'禪宗',url:'https://mp.weixin.qq.com/s/4gmHNvMDgDD7VxQqQql1Ag',status:'published'},
-  {date:'11月02日',title:'禅宗巨作之《碧巌录》成书、背景探析及其影响 2/7',tag:'禪宗',url:'https://mp.weixin.qq.com/s/PXdohA8dwewrv-OXkZGJkA',status:'published'},
-  {date:'10月28日',title:'禅宗巨作之《碧巌录》成书、背景探析及其影响 1/6',tag:'禪宗',url:'https://mp.weixin.qq.com/s/NEjkluNRZm5v0XzMWwz4FQ',status:'published'},
-  {date:'10月20日',title:'佛教学的百科全书——《大藏经》：汉传佛教',tag:'佛教史',url:'https://mp.weixin.qq.com/s/QpL3pO-8C6IuzI9DwhJztw',status:'published'},
-  {date:'10月12日',title:'禅宗「看话头」与大慧宗杲烧其恩师著作聊起 2/2',tag:'禪宗',url:'https://mp.weixin.qq.com/s/z-Zt9tG0coLoZvLbmsdamw',status:'published'},
-  {date:'10月05日',title:'禅宗「看话头」与大慧宗杲烧其恩师著作聊起 1/2',tag:'禪宗',url:'https://mp.weixin.qq.com/s/jXu90gQnbEqxKzH5mGc5HA',status:'published'},
-];
-
-const DEF_VIDS = [
-  {date:'03月07日',title:'大家都听过《大悲咒》，但你知道吗？在原始佛经里，佛陀竟然把念咒骂成是「畜生术」',views:'—',url:'',status:'upcoming'},
-  {date:'02月28日',title:'看佛书看到晕？明明都叫「四种缘起」，为什么在《俱舍论》和《华严经》里意思完全不一样？',views:'—',url:'',status:'upcoming'},
-  {date:'02月21日',title:'你以为「因果」就只是善有善报、恶有恶报吗？在佛经精密的分析里，那种叫「异熟果」',views:'—',url:'',status:'upcoming'},
-  {date:'02月16日',title:'【马年除夕特辑】大家都知道「白马寺」和《西游记》里的白龙马，但你知道吗？在印度佛教史里…',views:'777',url:'https://weixin.qq.com/sph/AX9FE6abd',status:'published'},
-  {date:'02月14日',title:'你知道吗？早在2500年前，佛经里就藏着一套惊人的「全息宇宙模型」！',views:'547',url:'https://weixin.qq.com/sph/AtdzAE1v5',status:'published'},
-  {date:'02月07日',title:'你以为「劫」是灾难？其实它是个超夸张的时间单位！佛经里的宇宙不是无限的…',views:'—',url:'https://weixin.qq.com/sph/AMKUNoBAr',status:'published'},
-  {date:'01月28日',title:'大家都听过「十八层地狱」，但你知道原始佛经里其实根本没有这个说法吗？',views:'—',url:'https://weixin.qq.com/sph/AIlhyQFUK',status:'published'},
-  {date:'01月10日',title:'佛學很深？其實就像找老友喝杯茶 ☕️ 很多人問我，佛學是不是一定要正襟危坐？',views:'—',url:'https://weixin.qq.com/sph/AWLkSokYR',status:'published'},
-  {date:'10月15日',title:'浙江台州·天台「智者塔院」随拍。沿着石阶入林，古松映着塔影…',views:'—',url:'https://weixin.qq.com/sph/A8gM4uPgD',status:'published'},
-  {date:'10月08日',title:'浙江台州·智顗说法台随拍。相传智者大师曾在此讲经说法，石阶入林、古台临风…',views:'—',url:'https://weixin.qq.com/sph/ApAz5oT5v',status:'published'},
-  {date:'09月30日',title:'雨后走进浙江台州·高明讲寺：古刹依山傍水，飞檐灰瓦与香火相映…',views:'—',url:'https://weixin.qq.com/sph/At1CQdkOX',status:'published'},
-  {date:'09月24日',title:'驻足欣赏近二十分钟之久，看了两遍。这么好看的文化之美以科技展示，怎么会没啥人来看',views:'—',url:'https://weixin.qq.com/sph/Ap79Vgz1N',status:'published'},
-];
-
-const GS=['radial-gradient(ellipse at 30% 50%,rgba(184,144,42,.3),transparent 60%),#1a1209','radial-gradient(ellipse at 70% 30%,rgba(107,124,90,.4),transparent 60%),#1a1209','radial-gradient(ellipse at 50% 80%,rgba(139,69,19,.3),transparent 60%),#1a1209','radial-gradient(ellipse at 80% 60%,rgba(184,144,42,.2),transparent 50%),#1a1209','radial-gradient(ellipse at 20% 40%,rgba(107,124,90,.35),transparent 55%),#1a1209','radial-gradient(ellipse at 60% 20%,rgba(139,69,19,.25),transparent 60%),#1a1209'];
-
-function gCA(){try{return JSON.parse(localStorage.getItem('jxyd_a')||'[]');}catch{return[]}}
-function gCV(){try{return JSON.parse(localStorage.getItem('jxyd_v')||'[]');}catch{return[]}}
-function sA(a){localStorage.setItem('jxyd_a',JSON.stringify(a))}
-function sV(v){localStorage.setItem('jxyd_v',JSON.stringify(v))}
-function allA(){return[...gCA(),...DEF_ARTS]}
-function allV(){return[...gCV(),...DEF_VIDS]}
-
-function renderFeatArt(){
-  var arts=allA().filter(function(a){return a.status==='published'&&a.url;}).slice(0,3);
-  var GS=['radial-gradient(ellipse at 30% 50%,rgba(184,144,42,.4),rgba(107,124,90,.2) 60%),#1a1209','radial-gradient(ellipse at 70% 30%,rgba(107,124,90,.5),rgba(26,18,9,.8) 60%),#1a1209','radial-gradient(ellipse at 50% 80%,rgba(139,69,19,.4),rgba(26,18,9,.8) 60%),#1a1209'];
-  var chars=['法','佛','空'];
-  var el=document.getElementById('feat-art');
-  if(!el)return;
-  var html='';
-  for(var i=0;i<arts.length;i++){
-    var a=arts[i];
-    html+='<a href="'+a.url+'" target="_blank" class="feat-card">'
-      +'<div class="feat-thumb"><div class="feat-thumb-bg" style="background:'+GS[i%3]+'"></div>'
-      +'<span class="feat-thumb-char">'+chars[i%3]+'</span>'
-      +'<span class="feat-tag">'+a.tag+'</span></div>'
-      +'<div class="feat-body"><div class="feat-date">'+a.date+'</div>'
-      +'<div class="feat-title">'+a.title+'</div></div></a>';
-  }
-  el.innerHTML=html;
-}
-function renderA(){
-  var T=LANGS[curLang];var arts=allA();var shown=arts.slice(3,13);
-  var el=document.getElementById('art-list');
-  if(!el)return;
-  el.innerHTML=shown.map(function(a){
-    var isUp=a.status==='upcoming'||!a.url;
-    var m=a.date.match(/(\d+)月(\d+)/)||['','',''];
-    var href=isUp?'javascript:void(0)':a.url;
-    var target=isUp?'':' target="_blank"';
-    return '<a href="'+href+'"'+target+' class="art-item'+(isUp?' up-item':'')+'">'
-      +'<div class="art-date"><span>'+m[2]+'</span>'+m[1]+'月</div>'
-      +'<div class="art-title">'+a.title+'</div>'
-      +'<div class="art-meta">'+(isUp?'<span class="up-badge" data-i18n="upcoming">即將發布</span>':'<span class="art-tag">'+a.tag+'</span>')+'</div>'
-      +'</a>';
-  }).join('');
-  var cnt=document.getElementById('art-count');
-  if(cnt)cnt.textContent=45;
-}
-function renderFeatVid(){
-  var vids=allV().filter(function(v){return v.status==='published'&&v.url;}).slice(0,3);
-  var GS=['radial-gradient(ellipse at 30% 50%,rgba(184,144,42,.3),transparent 60%),#1a1209','radial-gradient(ellipse at 70% 30%,rgba(107,124,90,.4),transparent 60%),#1a1209','radial-gradient(ellipse at 50% 80%,rgba(139,69,19,.3),transparent 60%),#1a1209'];
-  var el=document.getElementById('feat-vid');
-  if(!el)return;
-  var html='';
-  for(var i=0;i<vids.length;i++){
-    var v=vids[i];
-    html+='<div class="feat-card feat-vid-card" onclick="showWcPopup()">'
-      +'<div class="feat-thumb"><div class="feat-thumb-bg" style="background:'+GS[i%3]+'"></div>'
-      +'<div class="feat-vid-play"></div></div>'
-      +'<div class="feat-body"><div class="feat-date">👁 '+v.views+' · '+v.date+'</div>'
-      +'<div class="feat-title">'+v.title+'</div></div></div>';
-  }
-  el.innerHTML=html;
-}
-function renderV(){
-  var vids=allV();var shown=vids.slice(3,9);
-  var el=document.getElementById('vid-list');
-  if(!el)return;
-  el.innerHTML=shown.map(function(v){
-    var isUp=v.status==='upcoming'||!v.url;
-    return '<div class="vid-item'+(isUp?' up-item':'')+'" onclick="'+(isUp?'':'showWcPopup()')+'\">'
-      +'<div class="vid-date">'+v.date+'</div>'
-      +'<div class="vid-title">'+v.title+'</div>'
-      +'<div class="vid-views">👁 '+v.views+'</div>'
-      +'</div>';
-  }).join('');
-  var cnt=document.getElementById('vid-count');
-  if(cnt)cnt.textContent=66;
-}
-function render(){renderFeatArt();renderA();renderFeatVid();renderV();}
 function showWcPopup(){document.getElementById('wcPopup').classList.add('open')}
-
-// PASSWORD
-const ADMIN_PW = '1@34rewq'; // 預設密碼，可自行修改
-function openPwGate(){document.getElementById('pw-err').textContent='';document.getElementById('pw-input').value='';document.getElementById('pwGate').classList.add('open');setTimeout(()=>document.getElementById('pw-input').focus(),100)}
-function closePwGate(){document.getElementById('pwGate').classList.remove('open')}
-function checkPw(){
-  const v=document.getElementById('pw-input').value;
-  if(v===ADMIN_PW){closePwGate();openAdmin();}
-  else{document.getElementById('pw-err').textContent='密碼錯誤，請重試';document.getElementById('pw-input').value='';document.getElementById('pw-input').focus();}
+function toggleSub(subId,arrowId){
+  var sub=document.getElementById(subId),arrow=document.getElementById(arrowId);
+  if(!sub||!arrow)return;
+  var isOpen=sub.style.display!=='none';
+  sub.style.display=isOpen?'none':'grid';
+  arrow.classList.toggle('open',!isOpen);
 }
+function toggleArt(){toggleSub('art-sub','art-arrow')}
+function toggleBili(){toggleSub('bili-sub','bili-arrow')}
+function toggleHist(){toggleSub('hist-sub','hist-arrow')}
 
-function openAdmin(){document.getElementById('adminPanel').classList.add('open');renderML()}
-function closeAdmin(){document.getElementById('adminPanel').classList.remove('open')}
-
-function switchTab(tab,el){
-  document.querySelectorAll('.atab').forEach(t=>t.classList.remove('active'));el.classList.add('active');
-  document.querySelectorAll('.aform').forEach(f=>f.classList.remove('active'));
-  document.getElementById('form-'+tab).classList.add('active');
-  if(tab==='manage')renderML();
-}
-
-function addArticle(){
-  const t=document.getElementById('a-title').value.trim();const d=document.getElementById('a-date').value.trim();
-  if(!t||!d){document.getElementById('a-log').textContent='❌ 請填寫標題和日期';return}
-  const arr=gCA();arr.unshift({date:d,title:t,tag:document.getElementById('a-tag').value,url:document.getElementById('a-url').value.trim(),status:document.getElementById('a-status').value});
-  sA(arr);
-
-render();document.getElementById('a-log').innerHTML=`✅ 已新增：${t.slice(0,25)}…<br>共 ${allA().length} 篇`;
-  document.getElementById('a-title').value='';document.getElementById('a-url').value='';
-}
-
-function addVideo(){
-  const t=document.getElementById('v-title').value.trim();const d=document.getElementById('v-date').value.trim();
-  if(!t||!d){document.getElementById('v-log').textContent='❌ 請填寫標題和日期';return}
-  const arr=gCV();arr.unshift({date:d,title:t,views:document.getElementById('v-views').value.trim()||'—',url:document.getElementById('v-url').value.trim(),status:document.getElementById('v-status').value});
-  sV(arr);
-function toggleArt() {
-  const sub = document.getElementById('art-sub');
-  const arrow = document.getElementById('art-arrow');
-  const isOpen = sub.style.display !== 'none';
-  sub.style.display = isOpen ? 'none' : 'grid';
-  arrow.classList.toggle('open', !isOpen);
-}
-function toggleBili() {
-  const sub = document.getElementById('bili-sub');
-  const arrow = document.getElementById('bili-arrow');
-  const isOpen = sub.style.display !== 'none';
-  sub.style.display = isOpen ? 'none' : 'grid';
-  arrow.classList.toggle('open', !isOpen);
-}
-function toggleHist() {
-  const sub = document.getElementById('hist-sub');
-  const arrow = document.getElementById('hist-arrow');
-  const isOpen = sub.style.display !== 'none';
-  sub.style.display = isOpen ? 'none' : 'grid';
-  arrow.classList.toggle('open', !isOpen);
-}
-
-render();document.getElementById('v-log').innerHTML=`✅ 已新增：${t.slice(0,25)}…<br>共 ${allV().length} 部`;
-  document.getElementById('v-title').value='';document.getElementById('v-url').value='';
-}
-
-function renderML(){
-  const ca=gCA();const cv=gCV();const el=document.getElementById('manage-list');
-  if(!ca.length&&!cv.length){el.innerHTML='<span style="opacity:.5">目前沒有手動新增的內容</span>';return}
-  let h='';
-  ca.forEach((a,i)=>h+=`📄 ${a.date}｜${a.title.slice(0,20)}… <button onclick="delA(${i})" style="color:var(--rust);background:none;border:none;cursor:pointer;font-size:10px">刪除</button><br>`);
-  cv.forEach((v,i)=>h+=`🎬 ${v.date}｜${v.title.slice(0,20)}… <button onclick="delV(${i})" style="color:var(--rust);background:none;border:none;cursor:pointer;font-size:10px">刪除</button><br>`);
-  el.innerHTML=h;
-}
-function delA(i){const a=gCA();a.splice(i,1);sA(a);
-render();renderML()}
-function delV(i){const v=gCV();v.splice(i,1);sV(v);
-
-render();renderML()}
-function clearAll(){if(confirm('確認清除？')){localStorage.removeItem('jxyd_a');localStorage.removeItem('jxyd_v');render();renderML();}}
-
-function loadContent(){fetch('content.json').then(function(r){return r.json();}).catch(function(){return null;}).then(function(data){if(!data)return;var artEl=document.getElementById('article-list-dynamic');var vidEl=document.getElementById('video-grid-dynamic');if(artEl&&data.articles){var h='';data.articles.forEach(function(a){var d=a.date||'';var t=a.title||'';var url=a.links&&a.links.wechat?a.links.wechat:'#';h+='<div onclick="window.open(\''+url+'\',\'_blank\')" style="cursor:pointer;padding:12px 0;border-bottom:1px solid rgba(0,0,0,.08);display:flex;align-items:center;gap:16px"><div style="min-width:44px;text-align:center;font-size:22px;font-weight:700;color:var(--gold,#b8963e)">'+d.slice(8,10)+'<br><span style="font-size:11px;font-weight:400;color:#888">'+d.slice(5,7)+'月</span></div><div style="flex:1;font-size:14px">'+(a.cover?'<img src="'+a.cover+'" style="width:88px;height:66px;object-fit:cover;border-radius:4px;margin-right:10px;flex-shrink:0">':'')+t+'</div></div>';});artEl.innerHTML=h;}if(vidEl&&data.videos){var v='';data.videos.forEach(function(vid){var t=vid.title||'';v+='<div onclick="showWcPopup()" style="cursor:pointer;background:rgba(0,0,0,.05);border-radius:8px;padding:16px;margin-bottom:12px"><div style="font-size:13px;margin-bottom:6px">'+(vid.cover?'<img src="'+vid.cover+'" style="width:88px;height:66px;object-fit:cover;border-radius:4px;margin-right:10px;float:left">':'')+'🎬 '+t+'</div><div style="font-size:11px;color:#888">點擊掃碼觀看</div><div style="font-size:11px;color:#888;margin-top:4px">'+vid.date.slice(5,7)+'月'+vid.date.slice(8,10)+'日</div></div>';});vidEl.innerHTML=v;}})}
+function loadContent(){fetch('content.json').then(function(r){return r.json();}).catch(function(){return null;}).then(function(data){if(!data)return;var artEl=document.getElementById('article-list-dynamic');var vidEl=document.getElementById('video-grid-dynamic');if(artEl&&data.articles){var h='';data.articles.forEach(function(a){var d=a.date||'';var t=a.title||'';var url=a.links&&a.links.wechat?a.links.wechat:'#';h+='<div onclick="window.open(\''+url+'\',\'_blank\',\'noopener\')" style="cursor:pointer;padding:12px 0;border-bottom:1px solid rgba(0,0,0,.08);display:flex;align-items:center;gap:16px"><div style="min-width:44px;text-align:center;font-size:22px;font-weight:700;color:var(--gold,#b8963e)">'+d.slice(8,10)+'<br><span style="font-size:11px;font-weight:400;color:#888">'+d.slice(5,7)+'月</span></div><div style="flex:1;font-size:14px">'+(a.cover?'<img src="'+a.cover+'" style="width:88px;height:66px;object-fit:cover;border-radius:4px;margin-right:10px;flex-shrink:0">':'')+t+'</div></div>';});artEl.innerHTML=h;}if(vidEl&&data.videos){var v='';data.videos.forEach(function(vid){var t=vid.title||'';v+='<div onclick="showWcPopup()" style="cursor:pointer;background:rgba(0,0,0,.05);border-radius:8px;padding:16px;margin-bottom:12px"><div style="font-size:13px;margin-bottom:6px">'+(vid.cover?'<img src="'+vid.cover+'" style="width:88px;height:66px;object-fit:cover;border-radius:4px;margin-right:10px;float:left">':'')+'🎬 '+t+'</div><div style="font-size:11px;color:#888">點擊掃碼觀看</div><div style="font-size:11px;color:#888;margin-top:4px">'+vid.date.slice(5,7)+'月'+vid.date.slice(8,10)+'日</div></div>';});vidEl.innerHTML=v;}})}
 loadContent();
-  render();
 </script>
 </body>
 </html>
